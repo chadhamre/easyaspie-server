@@ -1,0 +1,24 @@
+{
+  "name": "easy-as-pie-server",
+  "version": "1.0.0",
+  "description": "api for restaurant details",
+  "main": "index.js",
+  "repository": "https://github.com/chadhamre/easy-as-pie-server.git",
+  "author": "Easyaspie Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^4.11.0",
+    "koa": "^2.4.1",
+    "koa-logger": "^3.1.0",
+    "koa-router": "^7.3.0"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "nodemon": "^1.12.1"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint .",
+    "start": "nodemon index.js"
+    }
+}
