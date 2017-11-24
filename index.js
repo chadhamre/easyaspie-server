@@ -1,5 +1,5 @@
 const Koa = require('koa');
-const logger = require('koa-logger')
+const logger = require('koa-logger');
 const router = require('./router');
 
 const app = new Koa();
