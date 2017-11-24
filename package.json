@@ -1,0 +1,9 @@
+{
+  "name": "easy-as-pie-server",
+  "version": "1.0.0",
+  "description": "api for restaurant details",
+  "main": "index.js",
+  "repository": "https://github.com/chadhamre/easy-as-pie-server.git",
+  "author": "Easyaspie Inc.",
+  "license": "MIT"
+}
