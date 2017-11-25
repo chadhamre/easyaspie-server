@@ -9,4 +9,4 @@ const app = new Koa();
 app
   .use(logger())
   .use(router.routes())
-  .listen(4000);
+  .listen(process.env.PORT || 4000);

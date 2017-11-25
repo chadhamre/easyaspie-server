@@ -21,6 +21,12 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
-    "start": "nodemon index.js"
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "8.8.1"
+  },
+  "keywords": {
+    "heroku"
   }
 }
