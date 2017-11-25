@@ -1,8 +1,10 @@
-// import dependencies
+// import controllers
 const fetchGoogleData = require('./fetch-google');
 const summarizeData = require('./summarize-data');
 const mapFoursquare = require('./map-foursquare');
 const fetchFoursquare = require('./fetch-foursquare');
+const mapYelp = require('./map-yelp');
+const fetchYelp = require('./fetch-yelp');
 
 // controller
 const placesController = async (ctx) => {
@@ -12,16 +14,17 @@ const placesController = async (ctx) => {
     ctx.body = {};
     ctx.status = 400;
   }
+
   // map place_id to foursquare googleData
-  const foursquareId = await mapFoursquare(googleData);
-  // fetch foursquare data
-  let foursquareData;
-  if (foursquareId !== 'NA') {
-    foursquareData = await fetchFoursquare(foursquareId);
-    foursquareData = foursquareData.response.venue;
-  }
+  const foursquareData = await mapFoursquare(googleData)
+    .then(id => fetchFoursquare(id));
+
+  // map place_id to foursquare googleData
+  const yelpData = await mapYelp(googleData)
+    .then(id => fetchYelp(id));
+
   // summarize data from all sources
-  const summaryData = await summarizeData(googleData, foursquareData);
+  const summaryData = await summarizeData(googleData, foursquareData, yelpData);
   // return summary json
   ctx.body = summaryData;
   ctx.status = 200;
