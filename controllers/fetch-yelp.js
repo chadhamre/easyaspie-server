@@ -2,13 +2,14 @@
 const fetch = require('node-fetch');
 
 // fetches and returns place details from google places api
-const fetchFoursquareData = (foursquareId) => {
-  const url = `https://api.foursquare.com/v2/venues/${foursquareId}?client_id=${
-    process.env.FOURSQUARE_CLIENT_ID
-  }&client_secret=${process.env.FOURSQUARE_CLIENT_SECRET}&v=20171124`;
+const fetchYelpData = (yelpId) => {
+  const url = `https://api.yelp.com/v3/businesses/${yelpId}`;
   try {
     return fetch(url, {
       method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${process.env.YELP_TOKEN}`
+      }
     }).then(data => data.json());
   } catch (err) {
     console.error(err);
@@ -17,4 +18,4 @@ const fetchFoursquareData = (foursquareId) => {
 };
 
 // export module
-module.exports = fetchFoursquareData;
+module.exports = fetchYelpData;

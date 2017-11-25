@@ -21,7 +21,7 @@ const placesController = async (ctx) => {
 
   // map place_id to foursquare googleData
   const yelpData = await mapYelp(googleData)
-    // .then(id => fetchYelp(id));
+    .then(id => fetchYelp(id));
 
   // summarize data from all sources
   const summaryData = await summarizeData(googleData, foursquareData.response.venue);

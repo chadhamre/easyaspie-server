@@ -2,7 +2,7 @@
 const fetch = require('node-fetch');
 
 const mapFoursquare = (googleData) => {
-  console.log('FOURSQUARE START') ;
+  console.log("FORESQUARE START")
   return new Promise((resolve, reject)=>{
     const nameQuery = googleData.result.name
       .split(' ')
@@ -16,7 +16,7 @@ const mapFoursquare = (googleData) => {
         method: 'GET',
       })
         .then(data => data.json())
-        .then((data) => {
+        .then(data => {
           if (data.meta.code === 200 && data.response.venues.length > 0) {
             resolve(data.response.venues[0].id);
           }
