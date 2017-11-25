@@ -5,14 +5,20 @@ const mapFoursquare = (googleData) => {
   return new Promise((resolve, reject)=>{
     const nameQuery = googleData.result.name
       .split(' ')
-      .map(el => `&query=${el}`)
+      .map(el => `&query=${encodeURI(el)}`)
       .join('');
+
     const googleLat = googleData.result.geometry.location.lat;
     const googleLng = googleData.result.geometry.location.lng;
-    const url = `https://api.foursquare.com/v2/venues/search?ll=${googleLat},${googleLng}${nameQuery}&radius=100&client_id=${process.env.FOURSQUARE_CLIENT_ID}&client_secret=${process.env.FOURSQUARE_CLIENT_SECRET}&v=20171124`;
+    const apiSlug = "https://api.foursquare.com/v2/venues/search?ll="
+    const url = `${apiSlug}${googleLat},${googleLng}${nameQuery}&radius=100&client_id=${process.env.FOURSQUARE_CLIENT_ID}&client_secret=${process.env.FOURSQUARE_CLIENT_SECRET}&v=20171124`;
+
     try {
       fetch(url, {
         method: 'GET',
+        headers: {
+
+        }
       })
         .then(data => data.json())
         .then(data => {
