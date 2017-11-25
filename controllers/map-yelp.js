@@ -1,7 +1,7 @@
 // imports
 const fetch = require('node-fetch');
 
-const mapFoursquare = (googleData) => {
+const mapYelp = (googleData) => {
   console.log('FOURSQUARE START') ;
   return new Promise((resolve, reject)=>{
     const nameQuery = googleData.result.name
@@ -30,4 +30,4 @@ const mapFoursquare = (googleData) => {
 
 };
 
-module.exports = mapFoursquare;
+module.exports = mapYelp;
