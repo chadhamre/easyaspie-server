@@ -17,7 +17,6 @@ const mapYelp = (googleData) => {
       })
         .then(data => data.json())
         .then(data => {
-          console.log(data)
           if (data.total > 0) {
             resolve(data.businesses[0].id);
           }
