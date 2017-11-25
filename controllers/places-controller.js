@@ -17,11 +17,10 @@ const placesController = async (ctx) => {
   // fetch foursquare data
   let foursquareData;
   if (foursquareId !== 'NA') {
-      foursquareData = await fetchFoursquare(foursquareId);
+    foursquareData = await fetchFoursquare(foursquareId);
   }
-  console.log(foursquareData)
   // summarize data from all sources
-  const summaryData = await summarizeData(googleData,foursquareData.response.venue);
+  const summaryData = await summarizeData(googleData, foursquareData.response.venue);
   // return summary json
   ctx.body = summaryData;
   ctx.status = 200;
