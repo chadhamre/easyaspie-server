@@ -1,8 +1,7 @@
 // imports
 const fetch = require('node-fetch');
 
-mapFoursquare = (googleData) => {
-  const googleName = googleData.result.name;
+const mapFoursquare = (googleData) => {
   const nameQuery = googleData.result.name
     .split(' ')
     .map(el => `&query=${el}`)
@@ -19,6 +18,7 @@ mapFoursquare = (googleData) => {
         if (data.meta.code === 200 && data.response.venues.length > 0) {
           return data.response.venues[0].id;
         }
+        return 'NA';
       });
   } catch (err) {
     console.error(err);
