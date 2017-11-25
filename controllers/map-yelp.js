@@ -3,11 +3,11 @@ const fetch = require('node-fetch');
 
 const mapYelp = (googleData) => {
   return new Promise((resolve, reject)=>{
-    const nameQuery = googleData.result.name.replace('/ /g','+')
+    const nameQuery = encodeURI(googleData.result.name)
     const googleLat = googleData.result.geometry.location.lat;
     const googleLng = googleData.result.geometry.location.lng;
-    const urlRoot = 'https://api.yelp.com/v3/businesses/search'
-    const url = `${urlRoot}?latitude=${googleLat}&longitude=${googleLng}&term=${nameQuery}&radius=100&limit=1`;
+    const apiSlug = 'https://api.yelp.com/v3/businesses/search'
+    const url = `${apiSlug}?latitude=${googleLat}&longitude=${googleLng}&term=${nameQuery}&radius=100&limit=1`;
     try {
       fetch(url, {
         method: 'GET',
