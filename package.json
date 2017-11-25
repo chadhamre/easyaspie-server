@@ -21,6 +21,7 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   }
 }
