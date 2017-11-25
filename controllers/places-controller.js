@@ -16,17 +16,17 @@ const placesController = async (ctx) => {
   }
 
   // fetch foursquare data
-  let foursquareData
-  const foursquareId = await mapFoursquare(googleData)
+  let foursquareData;
+  const foursquareId = await mapFoursquare(googleData);
   if (foursquareId !== 'NA') {
-    foursquareData = await fetchFoursquare(foursquareId)
+    foursquareData = await fetchFoursquare(foursquareId);
   }
 
   // fetch yelp data
-  let yelpData
-  const yelpId = await mapYelp(googleData)
+  let yelpData;
+  const yelpId = await mapYelp(googleData);
   if (yelpId !== 'NA') {
-    yelpData = await fetchYelp(yelpId)
+    yelpData = await fetchYelp(yelpId);
   }
 
   // summarize data from all sources
