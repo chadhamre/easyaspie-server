@@ -14,14 +14,15 @@ const placesController = async (ctx) => {
   }
   // map place_id to foursquare googleData
   const foursquareId = await mapFoursquare(googleData);
+  console.log('logging 4sq ID', foursquareId);
   // fetch foursquare data
   let foursquareData;
   if (foursquareId !== 'NA') {
       foursquareData = await fetchFoursquare(foursquareId);
+      foursquareData = foursquareData.response.venue;
   }
-  console.log(foursquareData)
   // summarize data from all sources
-  const summaryData = await summarizeData(googleData,foursquareData.response.venue);
+  const summaryData = await summarizeData(googleData,foursquareData);
   // return summary json
   ctx.body = summaryData;
   ctx.status = 200;

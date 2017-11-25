@@ -2,7 +2,8 @@
 const mingleData = async (googleData, foursquareData) => {
 
   // create object structure
-  const summaryData = { ratings: {}, location: {} };
+  const summaryData = { ratings: {}, location: {}, photos: [{}] };
+  console.log(foursquareData)
   // add basic data
   summaryData.name = googleData.result.name;
   summaryData.place_id = googleData.result.place_id;
@@ -17,7 +18,11 @@ const mingleData = async (googleData, foursquareData) => {
   if (foursquareData) {
     summaryData.ratings.foursquare = foursquareData.rating;
     summaryData.rating = (((googleData.result.rating * 2) + foursquareData.rating ) / 2).toFixed(1);
+    summaryData.photos = foursquareData.photos
+
   }
+
+
   return summaryData;
 };
 
