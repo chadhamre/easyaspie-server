@@ -1,16 +1,21 @@
 // import dependencies
-const pluralize = require('pluralize')
+const pluralize = require('pluralize');
 
 // this function summarizes the data for the front-end
 const mingleData = async (googleData, foursquareData, yelpData) => {
-
   // create object structure
-  const summaryData = { ratings: {}, location: {}, photos: [], prices:{}, categories: [] };
+  const summaryData = {
+    ratings: {},
+    location: {},
+    photos: [],
+    prices: {},
+    categories: [],
+  };
 
   // helper functions -----------------------------------------
   // foursqure helper functions
   const getBestPhoto = (el) => {
-    const url = (`${el.prefix}${el.width}x${el.height}${el.suffix}`);
+    const url = `${el.prefix}${el.width}x${el.height}${el.suffix}`;
     return url;
   };
 
@@ -28,8 +33,8 @@ const mingleData = async (googleData, foursquareData, yelpData) => {
 
   // yelp helper functions
   const addYelpPhotos = (photos) => {
-    photos.forEach(photo => summaryData.photos.push(photo))
-  }
+    photos.forEach(photo => summaryData.photos.push(photo));
+  };
 
   const addYelpCategories = (items) => {
     items.forEach((el) => {
@@ -39,25 +44,22 @@ const mingleData = async (googleData, foursquareData, yelpData) => {
 
   // generate averages
   const getAverage = (object, name) => {
-    let keys = Object.keys(object)
+    const keys = Object.keys(object);
     let total = 0;
-    keys.forEach(key => total += summaryData[name+'s'][key] )
-    summaryData[name] = (total / keys.length).toFixed(1)
-  }
+    keys.forEach(key => (total += summaryData[`${name}s`][key]));
+    summaryData[name] = (total / keys.length).toFixed(1);
+  };
 
-  dedupCategories = (array) => {
+  const dedupCategories = (array) => {
     array.forEach((item, key) => {
-      console.log(item, key)
-      array[key] = pluralize.singular(item.toLowerCase())
-    })
-
-    let newArray = [];
-    array.forEach(item => {
-      if (newArray.indexOf(item) === -1) newArray.push(item)
-    })
-
+      array[key] = pluralize.singular(item.toLowerCase());
+    });
+    const newArray = [];
+    array.forEach((item) => {
+      if (newArray.indexOf(item) === -1) newArray.push(item);
+    });
     summaryData.categories = newArray;
-  }
+  };
 
   // add google data -----------------------------------------
   summaryData.name = googleData.result.name;
@@ -85,13 +87,11 @@ const mingleData = async (googleData, foursquareData, yelpData) => {
   }
 
   // summarizing functions
-  dedupCategories(summaryData.categories)
-  getAverage(summaryData.prices, 'price')
-  getAverage(summaryData.ratings, 'rating')
+  dedupCategories(summaryData.categories);
+  getAverage(summaryData.prices, 'price');
+  getAverage(summaryData.ratings, 'rating');
 
   return summaryData;
 };
-
-
 
 module.exports = mingleData;

@@ -10,8 +10,8 @@ const fetchFoursquareData = (foursquareId) => {
     return fetch(url, {
       method: 'GET',
     })
-    .then(data => data.json())
-    .then(data => data.response.venue);
+      .then(data => data.json())
+      .then(data => data.response.venue);
   } catch (err) {
     console.error(err);
     return {};

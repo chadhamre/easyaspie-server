@@ -8,8 +8,8 @@ const fetchYelpData = (yelpId) => {
     return fetch(url, {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${process.env.YELP_TOKEN}`
-      }
+        Authorization: `Bearer ${process.env.YELP_TOKEN}`,
+      },
     }).then(data => data.json());
   } catch (err) {
     console.error(err);
