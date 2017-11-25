@@ -24,7 +24,7 @@ const placesController = async (ctx) => {
     .then(id => fetchYelp(id));
 
   // summarize data from all sources
-  const summaryData = await summarizeData(googleData, foursquareData);
+  const summaryData = await summarizeData(googleData, foursquareData, yelpData);
   // return summary json
   ctx.body = summaryData;
   ctx.status = 200;

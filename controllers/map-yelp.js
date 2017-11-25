@@ -2,7 +2,6 @@
 const fetch = require('node-fetch');
 
 const mapYelp = (googleData) => {
-  console.log("YELP START")
   return new Promise((resolve, reject)=>{
     const nameQuery = googleData.result.name.replace('/ /g','+')
     const googleLat = googleData.result.geometry.location.lat;

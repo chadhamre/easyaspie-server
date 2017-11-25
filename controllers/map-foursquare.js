@@ -2,7 +2,6 @@
 const fetch = require('node-fetch');
 
 const mapFoursquare = (googleData) => {
-  console.log("FORESQUARE START")
   return new Promise((resolve, reject)=>{
     const nameQuery = googleData.result.name
       .split(' ')
