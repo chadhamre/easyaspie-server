@@ -15,13 +15,19 @@ const placesController = async (ctx) => {
     ctx.status = 400;
   }
 
-  // map place_id to foursquare googleData
-  const foursquareData = await mapFoursquare(googleData)
-    .then(id => fetchFoursquare(id));
+  // fetch foursquare data
+  let foursquareData
+  const foursquareId = await mapFoursquare(googleData)
+  if (foursquareId !== 'NA') {
+    foursquareData = await fetchFoursquare(foursquareId)
+  }
 
-  // map place_id to foursquare googleData
-  const yelpData = await mapYelp(googleData)
-    .then(id => fetchYelp(id));
+  // fetch yelp data
+  let yelpData
+  const yelpId = await mapYelp(googleData)
+  if (yelpId !== 'NA') {
+    yelpData = await fetchYelp(yelpId)
+  }
 
   // summarize data from all sources
   const summaryData = await summarizeData(googleData, foursquareData, yelpData);
