@@ -1,6 +1,8 @@
 // import dependencies
-const fetchGoogleData = require('./service-google');
+const fetchGoogleData = require('./fetch-google');
 const summarizeData = require('./summarize-data');
+const mapFoursquare = require('./map-foursquare');
+const fetchFoursquare = require('./fetch-foursquare');
 
 // controller
 const placesController = async (ctx) => {
@@ -10,8 +12,15 @@ const placesController = async (ctx) => {
     ctx.body = {};
     ctx.status = 400;
   }
-  // mingle data from all sources
-  const summaryData = await summarizeData(googleData);
+  // map place_id to foursquare googleData
+  const foursquareId = await mapFoursquare(googleData);
+  // fetch foursquare data
+  let foursquareData;
+  if (foursquareId !== 'NA') {
+    foursquareData = await fetchFoursquare(foursquareId);
+  }
+  // summarize data from all sources
+  const summaryData = await summarizeData(googleData, foursquareData.response.venue);
   // return summary json
   ctx.body = summaryData;
   ctx.status = 200;

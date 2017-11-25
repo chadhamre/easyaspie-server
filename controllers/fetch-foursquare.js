@@ -2,8 +2,10 @@
 const fetch = require('node-fetch');
 
 // fetches and returns place details from google places api
-const fetchGoogleData = (placeId) => {
-  const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&key=${process.env.GOOGLE_PLACES_API_KEY}`;
+const fetchFoursquareData = (foursquareId) => {
+  const url = `https://api.foursquare.com/v2/venues/${foursquareId}?client_id=${
+    process.env.FOURSQUARE_CLIENT_ID
+  }&client_secret=${process.env.FOURSQUARE_CLIENT_SECRET}&v=20171124`;
   try {
     return fetch(url, {
       method: 'GET',
@@ -15,4 +17,4 @@ const fetchGoogleData = (placeId) => {
 };
 
 // export module
-module.exports = fetchGoogleData;
+module.exports = fetchFoursquareData;
