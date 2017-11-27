@@ -2,13 +2,14 @@
 const fetch = require('node-fetch');
 
 // fetches and returns place details from google places api
-const fetchGoogleData = (placeId) => {
-  const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&key=${
-    process.env.GOOGLE_PLACES_API_KEY
-  }`;
+const fetchYelpData = (yelpId) => {
+  const url = `https://api.yelp.com/v3/businesses/${encodeURI(yelpId)}`;
   try {
     return fetch(url, {
       method: 'GET',
+      headers: {
+        Authorization: `Bearer ${process.env.YELP_TOKEN}`,
+      },
     }).then(data => data.json());
   } catch (err) {
     // eslint-disable-next-line
@@ -18,4 +19,4 @@ const fetchGoogleData = (placeId) => {
 };
 
 // export module
-module.exports = fetchGoogleData;
+module.exports = fetchYelpData;
