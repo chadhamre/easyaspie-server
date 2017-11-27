@@ -5,6 +5,8 @@ const mapFoursquare = require('./map-foursquare');
 const { fetchFoursquareData, fetchFoursquarePhotos } = require('./fetch-foursquare');
 const mapYelp = require('./map-yelp');
 const fetchYelp = require('./fetch-yelp');
+const mapHappycow = require('./map-happycow');
+const fetchHappycow = require('./fetch-happycow');
 
 // controller
 const placesController = async (ctx) => {
@@ -34,8 +36,15 @@ const placesController = async (ctx) => {
     yelpData = await fetchYelp(yelpId);
   }
 
+  // fetch happw code data
+  let happycowData;
+  const happycowId = await mapHappycow(googleData);
+  if (happycowId !== 'NA') {
+    happycowData = await fetchHappycow(happycowId);
+  }
+
   // summarize data from all sources
-  const summaryData = await summarizeData(googleData, foursquareData, foursquarePhotos, yelpData);
+  const summaryData = await summarizeData(googleData, foursquareData, foursquarePhotos, yelpData, happycowData);
   // return summary json
   ctx.body = summaryData;
   ctx.status = 200;
