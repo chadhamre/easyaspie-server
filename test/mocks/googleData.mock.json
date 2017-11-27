@@ -1,0 +1,304 @@
+{
+  "html_attributions": [],
+  "result": {
+    "address_components": [{
+        "long_name": "23",
+        "short_name": "23",
+        "types": [
+          "street_number"
+        ]
+      },
+      {
+        "long_name": "Carrer de la Cera",
+        "short_name": "Carrer de la Cera",
+        "types": [
+          "route"
+        ]
+      },
+      {
+        "long_name": "Barcelona",
+        "short_name": "Barcelona",
+        "types": [
+          "locality",
+          "political"
+        ]
+      },
+      {
+        "long_name": "Barcelona",
+        "short_name": "Barcelona",
+        "types": [
+          "administrative_area_level_2",
+          "political"
+        ]
+      },
+      {
+        "long_name": "Catalunya",
+        "short_name": "CT",
+        "types": [
+          "administrative_area_level_1",
+          "political"
+        ]
+      },
+      {
+        "long_name": "Spain",
+        "short_name": "ES",
+        "types": [
+          "country",
+          "political"
+        ]
+      },
+      {
+        "long_name": "08001",
+        "short_name": "08001",
+        "types": [
+          "postal_code"
+        ]
+      }
+    ],
+    "adr_address": "<span class=\"street-address\">Carrer de la Cera, 23</span>, <span class=\"postal-code\">08001</span> <span class=\"locality\">Barcelona</span>, <span class=\"country-name\">Spain</span>",
+    "formatted_address": "Carrer de la Cera, 23, 08001 Barcelona, Spain",
+    "formatted_phone_number": "934 42 08 08",
+    "geometry": {
+      "location": {
+        "lat": 41.37893520000001,
+        "lng": 2.1662505
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 41.38028498029149,
+          "lng": 2.167598530291502
+        },
+        "southwest": {
+          "lat": 41.37758701970849,
+          "lng": 2.164900569708498
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+    "id": "a8997878a012482d6cf399394190903744cee4b0",
+    "international_phone_number": "+34 934 42 08 08",
+    "name": "Cera 23",
+    "opening_hours": {
+      "open_now": false,
+      "periods": [{
+          "close": {
+            "day": 0,
+            "time": "2330"
+          },
+          "open": {
+            "day": 0,
+            "time": "1900"
+          }
+        },
+        {
+          "close": {
+            "day": 2,
+            "time": "2330"
+          },
+          "open": {
+            "day": 2,
+            "time": "1900"
+          }
+        },
+        {
+          "close": {
+            "day": 3,
+            "time": "2330"
+          },
+          "open": {
+            "day": 3,
+            "time": "1900"
+          }
+        },
+        {
+          "close": {
+            "day": 4,
+            "time": "2330"
+          },
+          "open": {
+            "day": 4,
+            "time": "1900"
+          }
+        },
+        {
+          "close": {
+            "day": 5,
+            "time": "2330"
+          },
+          "open": {
+            "day": 5,
+            "time": "1900"
+          }
+        },
+        {
+          "close": {
+            "day": 6,
+            "time": "2330"
+          },
+          "open": {
+            "day": 6,
+            "time": "1900"
+          }
+        }
+      ],
+      "weekday_text": [
+        "Monday: Closed",
+        "Tuesday: 7:00 – 11:30 PM",
+        "Wednesday: 7:00 – 11:30 PM",
+        "Thursday: 7:00 – 11:30 PM",
+        "Friday: 7:00 – 11:30 PM",
+        "Saturday: 7:00 – 11:30 PM",
+        "Sunday: 7:00 – 11:30 PM"
+      ]
+    },
+    "photos": [{
+        "height": 1536,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/100146293420328637790/photos\">Cera 23</a>"
+        ],
+        "photo_reference": "CmRaAAAA6sVisWZNxZ1Mr08I4VQiXhJzs9gwxu-SSPSmIKQybJJ5SVCjfVOoliPPvsEgf8lW6fv11Q4HSH67PIUw4RbS_lSs_s_kNPrfTFVucdcX3RNYubUYt4f2ThGBdZDPdGK8EhAZUVIjE6N8oM0yJdtiIiOVGhR27B7fuIOfIMhhsLSLy5ZfLslnWA",
+        "width": 2048
+      },
+      {
+        "height": 4000,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/117865436140866568132/photos\">Daniel Aguilera Jimenez</a>"
+        ],
+        "photo_reference": "CmRaAAAATGIdKUrl6Cb8H69B9AXV2bLVMBinKAFgOkQGzYogxRSornj8HUP7nd6TcY7qyCi70Y_A8whKP6PUFafmZULuXDD9IPnVEr5HM4TaxDdDktK6ilvDmyKI0WJ2bIlSVKn1EhCJfola_MYY_zYQjnO219BGGhQr-kHxC6gcRxUIObQMKzwvo5vngg",
+        "width": 6000
+      },
+      {
+        "height": 416,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/113036409885892492278/photos\">Pol Minguet</a>"
+        ],
+        "photo_reference": "CmRaAAAA_8MCMY2VKyVhz1GKSBMe1QYL-3z79BsbLNDLAKEoH4CPwOOJB_YtRueLT3LLX6d3R9rPCQEO7SF2fnjh6bd2jjq3SvwVpsq48VvPYg8rk1gGWL5wfNl9khqfK9_1WmMgEhBVKjhyFZ8SwS_I-ibOGwV8GhSkJQi9s7abB4bjlcGCeHqLgcxUAw",
+        "width": 600
+      },
+      {
+        "height": 4000,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/117865436140866568132/photos\">Daniel Aguilera Jimenez</a>"
+        ],
+        "photo_reference": "CmRaAAAAxWCfHnNGXcdtTGizwqrXSi052D_bi5ptwZ1cIETApfben9AUN93eCgk8Gr7OQpsj_b5dRzHskS7Wu-YJEyXJauqTZkU4aD9Xo1O6J0TDqmtXb9cF3yYSaNLPjB4AjHx7EhDRSttvb8Hai6o3qER0YiFeGhSzpXLgfJkFqiJlCifkqtGwO_F5_w",
+        "width": 6000
+      },
+      {
+        "height": 345,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/113036409885892492278/photos\">Pol Minguet</a>"
+        ],
+        "photo_reference": "CmRaAAAALY_I13O4s9Dog6ryYi0806OkKpk00zkAd0VB_xGBKCF1C2ND-9EB7IHf8TFNtorDbDaQ9okPpPufXCCT89F7kXnkAB948x2w85ZbvLIZFf5ctoeAQOzCu4-A9E6zkw_sEhBJfkDpEqy1kXikvMI4C-vFGhTWEOfLXEDflJU7TFYxMHlK2U6lEw",
+        "width": 515
+      },
+      {
+        "height": 4000,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/117865436140866568132/photos\">Daniel Aguilera Jimenez</a>"
+        ],
+        "photo_reference": "CmRaAAAAIGthI8a8fjhaM04LcE60S9-caFKLYyxYQ4xuZ0L5yi834jvakGGGPi1Du01NHjzIX00J3dGaCXIMQ7vAGQSvvr1WQp7Y3FYIOJtM80yCbWDKFQVR1A4AKYuDe3epkU2PEhAPnD8wjo9QUiPVwC28U_A0GhTsPkdPZxfWe-DyED4VpfI40mHQSA",
+        "width": 6000
+      },
+      {
+        "height": 2976,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/102300226633024242499/photos\">Pere Compte Espona</a>"
+        ],
+        "photo_reference": "CmRaAAAAaiwvmvLbkIZfdjpz2NNUuceHKwaRG_HCx-SiBFUYoWbhoHLuCx-2mdDMRI9RDIrnBhqa5eG6VAjXpKNkV3AqXdggaoqxLu2m2104rKOBxNn3NvHySQSST5VGVzFZDJQ0EhAn91xSJt8-VM72MFl6fkNFGhQUs_HIQSSP7wfBatNpQRe0R6FFiA",
+        "width": 3968
+      },
+      {
+        "height": 4000,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/117865436140866568132/photos\">Daniel Aguilera Jimenez</a>"
+        ],
+        "photo_reference": "CmRaAAAAFK8-ZHxgZmSav2r5po_Hq-YxzMHyB9O_JSaMGF34N8kaOOlADe4cShYyU2m4tgNhgRy6ra_o8ulA7vqJCFi2i2rJvUHKcafLJPTNpJ6E64YfXutODAo8u98GpOic42DIEhB8j-v51yMmCk5gkeGipOAPGhQpLRWdHPqS6rwkUD_QEKVnHGj2nA",
+        "width": 6000
+      },
+      {
+        "height": 2432,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/100979561557776988286/photos\">김종수</a>"
+        ],
+        "photo_reference": "CmRaAAAAgcdfT3P4dAcc0Jas07U8CUanXCBUDXzOM_LOzLpCCxp8PfW4QQH-FvuuDu_l1rDz8FYfC9R4tdoG0od8ww2PGosHPHDq6yhjdBY8bATNLP_WSZNZaM_yn0a2Qhv5MHMtEhD9TOSmW-7bveT2s26XfttHGhQXXnaSDIANFlvzWtvTjW0A2teuOA",
+        "width": 3648
+      },
+      {
+        "height": 3024,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/103297815892861355128/photos\">John Yam</a>"
+        ],
+        "photo_reference": "CmRaAAAAoknm97EUrMlVuxW8MWU6JwwSFBKbX7KyKCjLPJJ0zjSN50HO_YDUkorpx6BCHP49FATSPeNG6yj4iUkP6FsBh5uonx66mJ3i5xqCxiIDJtDgKd01TN9p569Jdqp0RSw3EhDNrGuwn_m0joEInvhse8VyGhSHt2druKS-u15GCu0gAOAtB_h42A",
+        "width": 4032
+      }
+    ],
+    "place_id": "ChIJO9Q5t1-ipBIR6j1w_MTknys",
+    "rating": 4.5,
+    "reference": "CmRRAAAA7CnJFYeM_N6qfKtb7AGGQAREFn2nrrYzjFmG_kD9YxDb7gdniwkSwKUHw7achsaNBYBLbUMz9uTptecfi-dAe_apLKfhruP1wOVH4RiPeE9xG96nGq_NqFFEc9v-grikEhAc9QLdtQprgbqH9StcIxlhGhSm_Z60JITgluXtUjJX4Zc08TjINg",
+    "reviews": [{
+        "author_name": "Georgie Hewett",
+        "author_url": "https://www.google.com/maps/contrib/106638359146841227493/reviews",
+        "language": "en",
+        "profile_photo_url": "https://lh6.googleusercontent.com/-_LLKbvaU7h8/AAAAAAAAAAI/AAAAAAAAACY/ktmy_iovsVs/s128-c0x00000000-cc-rp-mo/photo.jpg",
+        "rating": 5,
+        "relative_time_description": "a week ago",
+        "text": "Stumbled upon this restaurant on trip advisor and so so glad we did.\nFood was amazing and service was excellent. \nWe arrived before restaurant opened but the owner/manager let us in to look at the menu to make sure it was where we wanted to go and we booked a table there and then. \nWe had time to kill before they opened so he suggested a cocktail bar near by which was also excellent.\nI have an intolerance to gluten which isn't too severe so generally when I go out for dinner I try to avoid it but if it's not easy then I'll suck it up for some yummy food and a bit of stomach ache but here i had no issue with that at all. They provided gluten free rolls and then adapted my dessert so it was suitable.\nWill definately be returning next time we're in Barcelona!",
+        "time": 1510824546
+      },
+      {
+        "author_name": "Yang Lei",
+        "author_url": "https://www.google.com/maps/contrib/118368304583334835433/reviews",
+        "language": "en",
+        "profile_photo_url": "https://lh6.googleusercontent.com/-aCPTek0xwOQ/AAAAAAAAAAI/AAAAAAAAABk/NGfzocmYres/s128-c0x00000000-cc-rp-mo/photo.jpg",
+        "rating": 4,
+        "relative_time_description": "a month ago",
+        "text": "We arrived at 7pm for dinner. Because all the seats are booked, we can enjoy our dinner until 8:15. So book a seat maybe?\nService is good. The blackberry mojito is great, 8€. However the main courses are not that satisfying. Volcano black risotto is a little bit too salty. And I would not recommend tagliatelle with sausages and prawn. Try some other things :)",
+        "time": 1508171345
+      },
+      {
+        "author_name": "Jun L",
+        "author_url": "https://www.google.com/maps/contrib/116244523378293594665/reviews",
+        "language": "en",
+        "profile_photo_url": "https://lh3.googleusercontent.com/-IDw3aVjQ7Ug/AAAAAAAAAAI/AAAAAAAADTU/HvOPP5x3eg8/s128-c0x00000000-cc-rp-mo-ba3/photo.jpg",
+        "rating": 5,
+        "relative_time_description": "3 months ago",
+        "text": "Best place we went to near our hotel. Service was fast, friendly and welcoming. Food was absolutely delicious. Bartender made a tasty blackberry mojito and generous fruity sangria. Deco was lovely, old school and well thought out. A great find in the area of run down shop houses. I would definitely come back. We had the tagliatelle with prawns and the slow cooked lamb. Both were tasty and the food was fresh. A really new taste for the palate. ",
+        "time": 1501443038
+      },
+      {
+        "author_name": "Elad lublinski",
+        "author_url": "https://www.google.com/maps/contrib/110416406219439934349/reviews",
+        "language": "en",
+        "profile_photo_url": "https://lh5.googleusercontent.com/-ue6SpuJilFg/AAAAAAAAAAI/AAAAAAAAAvo/5yGI1ybgb8o/s128-c0x00000000-cc-rp-mo/photo.jpg",
+        "rating": 5,
+        "relative_time_description": "2 months ago",
+        "text": "Great service, very nice atmosphere with awesome music, the design of the place is very interesting. The food was very tasty and beautifully served. I highly recommend eating there if you are visiting Barcelona, me and my wife really enjoyed our dinner there and it was one of best restaurants that we visited during our trip.",
+        "time": 1504606204
+      },
+      {
+        "author_name": "Vanessa Robson",
+        "author_url": "https://www.google.com/maps/contrib/105633255031904089168/reviews",
+        "language": "en",
+        "profile_photo_url": "https://lh3.googleusercontent.com/--d9Htc3dcFs/AAAAAAAAAAI/AAAAAAAAAAA/AFiYof1VlpchPltONq-IHfgIVGcECc-itw/s128-c0x00000000-cc-rp-mo/photo.jpg",
+        "rating": 5,
+        "relative_time_description": "2 months ago",
+        "text": "We enjoyed our final dinner in Barcelona at this amazing hidden gem!  The warm and inviting staff will make you feel right at home as you enjoy their delicious dishes at a reasonable price point!  We tried the seared tuna and beef cheek!  I'd also highly recommend their blackberry mojito!  Yum!!!",
+        "time": 1505562187
+      }
+    ],
+    "scope": "GOOGLE",
+    "types": [
+      "bar",
+      "night_club",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "url": "https://maps.google.com/?cid=3143482599627832810",
+    "utc_offset": 60,
+    "vicinity": "Carrer de la Cera, 23, Barcelona",
+    "website": "http://www.cera23.com/"
+  },
+  "status": "OK"
+}

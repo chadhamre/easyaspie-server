@@ -1,0 +1,868 @@
+{
+  "meta": {
+    "code": 200,
+    "requestId": "5a1c15a5dd579717e9ea5ea8"
+  },
+  "response": {
+    "photos": {
+      "count": 30,
+      "items": [{
+          "id": "4feea79fe4b0967097d78300",
+          "createdAt": 1341040543,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/CAox6IvQNjctxBkB03A8E16oyLTgS1puxq9nmPh-Sio.jpg",
+          "width": 720,
+          "height": 537,
+          "user": {
+            "id": "7157451",
+            "firstName": "Arnaud",
+            "lastName": "Nelissen",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/Z5HTQ0SZGMT0UOYT.jpg"
+            }
+          },
+          "checkin": {
+            "id": "4feea798e4b0f9bd2b813660",
+            "createdAt": 1341040536,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "50a8f36be4b0f076605c7194",
+          "createdAt": 1353249643,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/28138090_cRryFM5Naf4QH0WhK0qJwmK-C9Fzah-ChYlaxCxQ4dM.jpg",
+          "width": 540,
+          "height": 720,
+          "user": {
+            "id": "28138090",
+            "firstName": "La Casassa de Ribes",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/UXUWH330LT5W2BTL.jpg"
+            }
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "5144f9bae4b092570e606f23",
+          "createdAt": 1363474874,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/671522_G2cWKGqz1OxNytktPraan7ewffzururDU2craaOLm9o.jpg",
+          "width": 717,
+          "height": 959,
+          "user": {
+            "id": "671522",
+            "firstName": "Sergi",
+            "lastName": "Lopez",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/671522_P9lemsA-_W2Mdw4-s8huYWBLj01ApDa0S0DcBsNSnzCQjhpb4RDtY4NK9c3wfzbKw5c4pCtOc.jpg"
+            }
+          },
+          "checkin": {
+            "id": "5144f9b4e4b021dad2cf3089",
+            "createdAt": 1363474868,
+            "type": "checkin",
+            "timeZoneOffset": 60
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "5123d335e4b004b747f26cb8",
+          "createdAt": 1361302325,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/11524814_1ceBN0MoT6pMDxnECVFew61an_wU5j4W8F38DMLyXOQ.jpg",
+          "width": 720,
+          "height": 960,
+          "user": {
+            "id": "11524814",
+            "firstName": "JF",
+            "lastName": "Orsini",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/KOMCNEIIG4MWXKF0.jpg"
+            }
+          },
+          "checkin": {
+            "id": "5123d32ce4b0dcbf988a8086",
+            "createdAt": 1361302316,
+            "type": "checkin",
+            "timeZoneOffset": 60
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "551ef296498e10e6023f2558",
+          "createdAt": 1428091542,
+          "source": {
+            "name": "Swarm for Android",
+            "url": "https://www.swarmapp.com"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/7930333_-AteWTVilRDs0FjsT-ApamPop99DulK_Fvdw79V8NEs.jpg",
+          "width": 960,
+          "height": 555,
+          "user": {
+            "id": "7930333",
+            "firstName": "Steven",
+            "lastName": "Wouters",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/EFOGCEKAULB13VQ1.jpg"
+            }
+          },
+          "checkin": {
+            "id": "551ef295498ee43508f48f50",
+            "createdAt": 1428091541,
+            "type": "checkin",
+            "timeZoneOffset": 120,
+            "with": [{
+              "id": "55845584",
+              "firstName": "Lore",
+              "lastName": "Stessens",
+              "gender": "female",
+              "photo": {
+                "prefix": "https://igx.4sqi.net/img/user/",
+                "suffix": "/IZX53NYRLNCTNKYZ.jpg"
+              }
+            }]
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "55956db1498e2a7ab64f0ba9",
+          "createdAt": 1435856305,
+          "source": {
+            "name": "Swarm for iOS",
+            "url": "https://www.swarmapp.com"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/60488881_FGSm6rzoGLewiGV_p5UMHm5LfQ08_ezuhzqw8oI9xPY.jpg",
+          "width": 1920,
+          "height": 1440,
+          "user": {
+            "id": "60488881",
+            "firstName": "Juanma",
+            "lastName": "Villanueva",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/QUMKAQCVIBJH0PGC.jpg"
+            }
+          },
+          "checkin": {
+            "id": "55956dab498e06a94fcee16c",
+            "createdAt": 1435856299,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "53e27fc7498e1b9ce8008b5e",
+          "createdAt": 1407352775,
+          "source": {
+            "name": "Swarm for iOS",
+            "url": "https://www.swarmapp.com"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/51862463_uU3voZk9EAgqHuNcFvKtgu7XeYO3nXhvBDMpL-bMrEc.jpg",
+          "width": 720,
+          "height": 960,
+          "user": {
+            "id": "51862463",
+            "firstName": "Niusha",
+            "lastName": "Koobasi",
+            "gender": "female",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/PNRDTRL4YMT03OKE.jpg"
+            }
+          },
+          "checkin": {
+            "id": "53e27fc4498e103d5fd8e8d8",
+            "createdAt": 1407352772,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "5082413ce4b0e5cc9a8e1196",
+          "createdAt": 1350713660,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/16723617_puhAg5m44Tz2aRBJLFWYPzcOFKJ1bgItlW7FREk3saY.jpg",
+          "width": 537,
+          "height": 720,
+          "user": {
+            "id": "16723617",
+            "firstName": "Victoria",
+            "gender": "female",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/16723617_3T3OCA1q_U0ktxZZiXGcO_HaHyb6lOj_ZKBl8M6FX7ayG5_Vl_oNFSg_iV35B8b10as9i5vx0.jpg"
+            }
+          },
+          "checkin": {
+            "id": "50824138e4b0921f5bf0b7c4",
+            "createdAt": 1350713656,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "512d1aa3e4b0c53c32e76012",
+          "createdAt": 1361910435,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/29007517_yJnLz8wBtA0C9QrY65Qv5ieiOJaUkSLwFCHgxVT6gaY.jpg",
+          "width": 720,
+          "height": 537,
+          "user": {
+            "id": "29007517",
+            "firstName": "Ioana",
+            "lastName": "Serban",
+            "gender": "female",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/blank_girl.png",
+              "default": true
+            }
+          },
+          "checkin": {
+            "id": "512d1a9fe4b0120031616481",
+            "createdAt": 1361910431,
+            "type": "checkin",
+            "timeZoneOffset": 60
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "54f0afc4498ebe3deed58519",
+          "createdAt": 1425059780,
+          "source": {
+            "name": "Swarm for Android",
+            "url": "https://www.swarmapp.com"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/5250189_zOjUQW7T8eXl9QI2G2s87E5pAM3fwZdRhWdUwivkAzk.jpg",
+          "width": 960,
+          "height": 720,
+          "user": {
+            "id": "5250189",
+            "firstName": "Eddie",
+            "lastName": "Pak",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/5250189-1ARS0QE4O5S0DHV4.jpg"
+            }
+          },
+          "checkin": {
+            "id": "54f0afb5498e437cc155b6e9",
+            "createdAt": 1425059765,
+            "type": "checkin",
+            "timeZoneOffset": 60
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "5446d2e8498ecf06d6145b28",
+          "createdAt": 1413927656,
+          "source": {
+            "name": "Swarm for iOS",
+            "url": "https://www.swarmapp.com"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/22219592_eAPetb3_eaPAZDSYiyiwfKOFlJyaeUGHQUzMf998dXc.jpg",
+          "width": 960,
+          "height": 308,
+          "user": {
+            "id": "22219592",
+            "firstName": "ClaClaCla",
+            "gender": "female",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/22219592-2VSLJZAWQ3YLG1OU.jpg"
+            }
+          },
+          "checkin": {
+            "id": "5443c951498eedbce93de4a1",
+            "createdAt": 1413728593,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "50e13c65e4b01843b988573b",
+          "createdAt": 1356938341,
+          "source": {
+            "name": "Instagram",
+            "url": "http://instagram.com"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/34776779_JCuL1B7Gi4yjMxgklrp5cTgKcQZmshyABoRc2gTmxVI.jpg",
+          "width": 612,
+          "height": 612,
+          "user": {
+            "id": "34776779",
+            "firstName": "Paolo",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/OG0SCT5IC3PKHOPV.jpg"
+            }
+          },
+          "checkin": {
+            "id": "50e13c65e4b09f5e9384f2f1",
+            "createdAt": 1356938341,
+            "type": "checkin",
+            "timeZoneOffset": 60
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "51424171e4b0041cb87d8e73",
+          "createdAt": 1363296625,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/3295827_ULYbnmTiEFHX7cyBvZG4ZoS3g1iRAHuOsGZsrD-wVTw.jpg",
+          "width": 960,
+          "height": 720,
+          "user": {
+            "id": "3295827",
+            "firstName": "Peerapong",
+            "lastName": "Ananthong",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/3295827-WRB3IYLEW3FY3C0S.jpg"
+            }
+          },
+          "checkin": {
+            "id": "5142416ce4b050cd95f870e4",
+            "createdAt": 1363296620,
+            "type": "checkin",
+            "timeZoneOffset": 60
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "51664c33e4b07cad352f989b",
+          "createdAt": 1365658675,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/39530878_jKURJZtWJ92kUU7kt4_CwSrd5ji5-Cn66FLhbrKr-Bs.jpg",
+          "width": 1920,
+          "height": 1440,
+          "user": {
+            "id": "39530878",
+            "firstName": "Crazy Monk",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/EIAYNCPSBRHXQZN4.jpg"
+            }
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "4f4a2f0be4b05ebee141fdd8",
+          "createdAt": 1330261771,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/cGjF8fUXzdc90wuE3wqfJNilyb3LXYwpWK0QabBsDz8.jpg",
+          "width": 537,
+          "height": 720,
+          "user": {
+            "id": "12806617",
+            "firstName": "George",
+            "lastName": "Giannakeas",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/DK03UK5QSKWJ4L5H.jpg"
+            }
+          },
+          "checkin": {
+            "id": "4f4a2f04e4b011fb7744849e",
+            "createdAt": 1330261764,
+            "type": "checkin",
+            "timeZoneOffset": 60
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "51a3956f498e347325522923",
+          "createdAt": 1369675119,
+          "source": {
+            "name": "Untappd",
+            "url": "https://untappd.com"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/47483206_HvDtI4Az3N6TK5kxeefAUB7YHUz6l3Asbk7ZPnhN0Q8",
+          "width": 640,
+          "height": 640,
+          "user": {
+            "id": "47483206",
+            "firstName": "JC",
+            "lastName": "Llanes",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/GHPQUHQ1MNJHE0RS.jpg"
+            }
+          },
+          "checkin": {
+            "id": "51a3956e498efd44e1e25e6f",
+            "createdAt": 1369675118,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "51e58274498e02cab1cd13e5",
+          "createdAt": 1373995636,
+          "source": {
+            "name": "Instagram",
+            "url": "http://instagram.com"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/29380266_HZbjq9rmL6CdfG7M7f1O6crqD60kECp83E-lDoKyGt0.jpg",
+          "width": 612,
+          "height": 612,
+          "user": {
+            "id": "29380266",
+            "firstName": "Вершинин ⚡",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/29380266-KBZ2CNSXJNKCD3OA.jpg"
+            }
+          },
+          "checkin": {
+            "id": "51e58273498e64a98b7ef20c",
+            "createdAt": 1373995635,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "4f71b706e4b077eb935959ae",
+          "createdAt": 1332852486,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/JNDGz-7IxLzXJe-SfpjrU6BmFNJdSCPs1d7sYsQyyIs.jpg",
+          "width": 540,
+          "height": 720,
+          "user": {
+            "id": "22148496",
+            "firstName": "Alberto",
+            "lastName": "Javier",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/VI1AEL4QFX3C2HRT.jpg"
+            }
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "50781913e4b0e1c7ac5a7631",
+          "createdAt": 1350048019,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/1747053_RbN2Xd_WLI__HBvkRbw1l288h6iE3ElF25s1716gAv8.jpg",
+          "width": 540,
+          "height": 720,
+          "user": {
+            "id": "1747053",
+            "firstName": "Liam",
+            "lastName": "Richards",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/2OLFVE3IPZY4XGXS.jpg"
+            }
+          },
+          "checkin": {
+            "id": "50781900e4b0df11c89e66b1",
+            "createdAt": 1350048000,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "5274cfcb498e0990b7191e5b",
+          "createdAt": 1383387083,
+          "source": {
+            "name": "Instagram",
+            "url": "http://instagram.com"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/181920_uzLDCfrBXAeAf4l1cTaS2aZyHTx0gGrKDhtyVzJSoy0.jpg",
+          "width": 640,
+          "height": 640,
+          "user": {
+            "id": "181920",
+            "firstName": "Mauro",
+            "lastName": "Fuentes",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/181920-APKSC3W52PJMMJD0.jpg"
+            }
+          },
+          "checkin": {
+            "id": "5274cfca11d21789beb4ae12",
+            "createdAt": 1383387082,
+            "type": "checkin",
+            "timeZoneOffset": 60
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "51c88e3f498e13f8b09aa97d",
+          "createdAt": 1372098111,
+          "source": {
+            "name": "Foursquare for Android",
+            "url": "https://foursquare.com/download/#/android"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/24792471_crNcFk-U9LqEX1VJBmG9F-HwQjMUryw265H1lEksJDc.jpg",
+          "width": 960,
+          "height": 960,
+          "user": {
+            "id": "24792471",
+            "firstName": "Terrazeo",
+            "gender": "none",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/BMTC0EK2O0ZP2FQ3.png"
+            }
+          },
+          "checkin": {
+            "id": "51c88dd1498e9604b94011f4",
+            "createdAt": 1372098001,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "5141e4cde4b0dd076191f651",
+          "createdAt": 1363272909,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/3295827_NCuqW8x_F3A738hDlAEuxrU1XE_G8xNIH-Rq_v_rHI0.jpg",
+          "width": 960,
+          "height": 720,
+          "user": {
+            "id": "3295827",
+            "firstName": "Peerapong",
+            "lastName": "Ananthong",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/3295827-WRB3IYLEW3FY3C0S.jpg"
+            }
+          },
+          "checkin": {
+            "id": "5141e4c6e4b0ffc7b91c928d",
+            "createdAt": 1363272902,
+            "type": "checkin",
+            "timeZoneOffset": 60
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "5035547be4b073ccc8dd0bbe",
+          "createdAt": 1345672315,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/Q71356wQoXimT9RcKAjW5APBFyBYhcl-r_CdBEaJxBM.jpg",
+          "width": 540,
+          "height": 720,
+          "user": {
+            "id": "28422694",
+            "firstName": "Armen",
+            "lastName": "Maytesyan",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/UEBN5NAQB1BWG0XC.jpg"
+            }
+          },
+          "checkin": {
+            "id": "50355473e4b07cc1aa794120",
+            "createdAt": 1345672307,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "50c5b779498ef1fd45ce5b4a",
+          "createdAt": 1355134841,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/16016897_mLxXSWjt0Jsm3w__du8tF68PkaYX6WfaLOa2GS_IHic.jpg",
+          "width": 537,
+          "height": 720,
+          "user": {
+            "id": "16016897",
+            "firstName": "Les",
+            "gender": "female",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/Q234MU2AIZY3V5LT.jpg"
+            }
+          },
+          "checkin": {
+            "id": "50c5b6cbe4b065e8ed5af709",
+            "createdAt": 1355134667,
+            "type": "checkin",
+            "timeZoneOffset": 60
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "510305c2e4b0059cd622b752",
+          "createdAt": 1359152578,
+          "source": {
+            "name": "Foursquare for Android",
+            "url": "https://foursquare.com/download/#/android"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/13115091_CNIattrKvH_M8uK4FrmDDK8KYgKJmx2bBMRIc0PrSrU.jpg",
+          "width": 720,
+          "height": 540,
+          "user": {
+            "id": "13115091",
+            "firstName": "Jim",
+            "lastName": "K",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/O1ULALQ4KKKSZG2U.jpg"
+            }
+          },
+          "checkin": {
+            "id": "510305bee4b026c3b8b8a67e",
+            "createdAt": 1359152574,
+            "type": "checkin",
+            "timeZoneOffset": 60
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "516a636be4b02db3302bfca3",
+          "createdAt": 1365926763,
+          "source": {
+            "name": "Instagram",
+            "url": "http://instagram.com"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/261665_8q2TQjaY8gkw8TIM9oQb3i5jbRqhnYehLEel3UQbX2s.jpg",
+          "width": 612,
+          "height": 612,
+          "user": {
+            "id": "261665",
+            "firstName": "Pau",
+            "lastName": "García Solbes",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/261665-TZ33FQ4GCBHG4WPQ.jpg"
+            }
+          },
+          "checkin": {
+            "id": "516a6138e4b044ab0280bec5",
+            "createdAt": 1365926200,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "4f71b4f2e4b0e534b2890120",
+          "createdAt": 1332851954,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/eCNYz4ZByxAeyU_ujZZvYnKCu_HSdcqSYXHgJ4v8Ojk.jpg",
+          "width": 540,
+          "height": 720,
+          "user": {
+            "id": "22148496",
+            "firstName": "Alberto",
+            "lastName": "Javier",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/VI1AEL4QFX3C2HRT.jpg"
+            }
+          },
+          "checkin": {
+            "id": "4f71b4eae4b0b0a42267e6a1",
+            "createdAt": 1332851946,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "51685fe0e4b03f3f4290d3f7",
+          "createdAt": 1365794784,
+          "source": {
+            "name": "Instagram",
+            "url": "http://instagram.com"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/261665_oqNzC5uwtJ0zoxHGFOLmztXT_p1MHUnFXlDu_uS4yyI.jpg",
+          "width": 612,
+          "height": 612,
+          "user": {
+            "id": "261665",
+            "firstName": "Pau",
+            "lastName": "García Solbes",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/261665-TZ33FQ4GCBHG4WPQ.jpg"
+            }
+          },
+          "checkin": {
+            "id": "51684efbe4b0c44c1787bddb",
+            "createdAt": 1365790459,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "50e72c6ee4b0d7633065ded3",
+          "createdAt": 1357327470,
+          "source": {
+            "name": "Foursquare for iOS",
+            "url": "https://foursquare.com/download/#/iphone"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/5370876_5jI-xRzBpVyrXUA_nhC24FP9pyjzJTCOrTFquNWoMcs.jpg",
+          "width": 960,
+          "height": 720,
+          "user": {
+            "id": "5370876",
+            "firstName": "Elisabet",
+            "lastName": "Montagut",
+            "gender": "female",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/5RLNFZTWATWH5BOB.jpg"
+            }
+          },
+          "checkin": {
+            "id": "50e72c6be4b0531ace3b6e12",
+            "createdAt": 1357327467,
+            "type": "checkin",
+            "timeZoneOffset": 60
+          },
+          "visibility": "public"
+        },
+        {
+          "id": "505ed777e4b0a05446b6d4c0",
+          "createdAt": 1348392823,
+          "source": {
+            "name": "Instagram",
+            "url": "http://instagram.com"
+          },
+          "prefix": "https://igx.4sqi.net/img/general/",
+          "suffix": "/2223446_R8W1CKGj2bAQwWMAE0j64E_p-XBedrEjw0SagBb9Lmw.jpg",
+          "width": 612,
+          "height": 612,
+          "user": {
+            "id": "2223446",
+            "firstName": "TM",
+            "lastName": "Hayes",
+            "gender": "male",
+            "photo": {
+              "prefix": "https://igx.4sqi.net/img/user/",
+              "suffix": "/N020CK21KX5C30IF.jpg"
+            }
+          },
+          "checkin": {
+            "id": "505ed211e4b0d9a2f16611b6",
+            "createdAt": 1348391441,
+            "type": "checkin",
+            "timeZoneOffset": 120
+          },
+          "visibility": "public"
+        }
+      ],
+      "dupesRemoved": 0
+    }
+  }
+}

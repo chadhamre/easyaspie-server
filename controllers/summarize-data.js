@@ -16,10 +16,7 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
 
   // helper functions -----------------------------------------
   // foursquare helper functions
-  const getBestPhoto = (el) => {
-    const url = `${el.prefix}${el.width}x${el.height}${el.suffix}`;
-    return url;
-  };
+  const getBestPhoto = el => `${el.prefix}${el.width}x${el.height}${el.suffix}`;
 
   const photosFoursquare = (items) => {
     items.forEach((el) => {
