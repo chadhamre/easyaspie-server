@@ -2,7 +2,7 @@
 const fetchGoogleData = require('./fetch-google');
 const summarizeData = require('./summarize-data');
 const mapFoursquare = require('./map-foursquare');
-const fetchFoursquare = require('./fetch-foursquare');
+const { fetchFoursquareData, fetchFoursquarePhotos } = require('./fetch-foursquare');
 const mapYelp = require('./map-yelp');
 const fetchYelp = require('./fetch-yelp');
 
@@ -19,7 +19,12 @@ const placesController = async (ctx) => {
   let foursquareData;
   const foursquareId = await mapFoursquare(googleData);
   if (foursquareId !== 'NA') {
-    foursquareData = await fetchFoursquare(foursquareId);
+    foursquareData = await fetchFoursquareData(foursquareId);
+  }
+  // fetch foursquare photos
+  let foursquarePhotos;
+  if (foursquareData.photos.count > 5) {
+    foursquarePhotos = await fetchFoursquarePhotos(foursquareId);
   }
 
   // fetch yelp data
@@ -30,7 +35,7 @@ const placesController = async (ctx) => {
   }
 
   // summarize data from all sources
-  const summaryData = await summarizeData(googleData, foursquareData, yelpData);
+  const summaryData = await summarizeData(googleData, foursquareData, foursquarePhotos, yelpData);
   // return summary json
   ctx.body = summaryData;
   ctx.status = 200;

@@ -28,6 +28,7 @@ const mapFoursquare = googleData =>
           resolve('NA');
         });
     } catch (err) {
+      // eslint-disable-next-line
       console.error(err);
       resolve('NA');
     }

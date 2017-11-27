@@ -12,6 +12,7 @@ const fetchYelpData = (yelpId) => {
       },
     }).then(data => data.json());
   } catch (err) {
+    // eslint-disable-next-line
     console.error(err);
     return {};
   }

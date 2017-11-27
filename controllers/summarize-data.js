@@ -2,7 +2,7 @@
 const pluralize = require('pluralize');
 
 // this function summarizes the data for the front-end
-const mingleData = async (googleData, foursquareData, yelpData) => {
+const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData) => {
   // create object structure
   const summaryData = {
     ratings: {},
@@ -45,17 +45,14 @@ const mingleData = async (googleData, foursquareData, yelpData) => {
   // generate averages
   const getAverage = (object, name) => {
     const keys = Object.keys(object);
-    let total = 0;
-    keys.forEach(key => (total += summaryData[`${name}s`][key]));
+    const total = keys.reduce((accum, key) => accum + summaryData[`${name}s`][key], 0);
     summaryData[name] = (total / keys.length).toFixed(1);
   };
 
   const dedupCategories = (array) => {
-    array.forEach((item, key) => {
-      array[key] = pluralize.singular(item.toLowerCase());
-    });
+    const singularArr = array.map(item => pluralize.singular(item.toLowerCase()));
     const newArray = [];
-    array.forEach((item) => {
+    singularArr.forEach((item) => {
       if (newArray.indexOf(item) === -1) newArray.push(item);
     });
     summaryData.categories = newArray;
@@ -75,7 +72,11 @@ const mingleData = async (googleData, foursquareData, yelpData) => {
     summaryData.bestPhoto = getBestPhoto(foursquareData.bestPhoto);
     if (foursquareData.price) summaryData.prices.foursquare = foursquareData.price.tier;
     extractCategoriesFoursquare(foursquareData.categories);
-    photosFoursquare(foursquareData.photos.groups[0].items);
+
+    // add foursquare photos
+    if (foursquarePhotos) {
+      photosFoursquare(foursquarePhotos.items);
+    }
   }
 
   // add Yelp data
