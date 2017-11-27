@@ -16,14 +16,11 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
 
   // helper functions -----------------------------------------
   // foursquare helper functions
-  const getBestPhoto = (el) => {
-    const url = `${el.prefix}${el.width}x${el.height}${el.suffix}`;
-    return url;
-  };
+  const getBestPhoto = el => `${el.prefix}${el.width}x${el.height}${el.suffix}`;
 
   const photosFoursquare = (items) => {
     items.forEach((el) => {
-      summaryData.photos.push(`${el.prefix}${el.width}x${el.height}${el.suffix}`);
+      summaryData.photos.push({ uri: `${el.prefix}${el.width}x${el.height}${el.suffix}` });
     });
   };
 
@@ -55,7 +52,7 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
     const splitArr = [];
     array.forEach(item => item.split(/ or | \/ /).forEach(word => splitArr.push(word)));
     const singularArr = splitArr.map(item => pluralize.singular(item.toLowerCase()));
-    const strippedArr = singularArr.map(item => item.replace(' restaurant', '').replace('_',' '))
+    const strippedArr = singularArr.map(item => item.replace(' restaurant', '').replace('_', ' '));
 
     const newArray = [];
     strippedArr.forEach((item) => {
