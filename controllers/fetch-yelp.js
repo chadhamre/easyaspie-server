@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 // fetches and returns place details from google places api
 const fetchYelpData = (yelpId) => {
-  const url = `https://api.yelp.com/v3/businesses/${yelpId}`;
+  const url = `https://api.yelp.com/v3/businesses/${encodeURI(yelpId)}`;
   try {
     return fetch(url, {
       method: 'GET',
