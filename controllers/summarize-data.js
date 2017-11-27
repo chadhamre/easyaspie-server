@@ -10,15 +10,11 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
     location: {},
     photos: [],
     prices: {},
-    categories: []
+    categories: [],
   };
 
-  // helper functions -----------------------------------------
   // foursqure helper functions
-  const getBestPhoto = (el) => {
-    const url = `${el.prefix}${el.width}x${el.height}${el.suffix}`;
-    return url;
-  };
+  const getBestPhoto = el => `${el.prefix}${el.width}x${el.height}${el.suffix}`;
 
   const photosFoursquare = (items) => {
     items.forEach((el) => {
@@ -50,12 +46,12 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
     summaryData[name] = (total / keys.length).toFixed(1);
   };
 
+  // depulicate and clean category array
   const dedupCategories = (array) => {
     const splitArr = [];
     array.forEach(item => item.split(/ or | \/ /).forEach(word => splitArr.push(word)));
     const singularArr = splitArr.map(item => pluralize.singular(item.toLowerCase()));
-    const strippedArr = singularArr.map(item => item.replace(' restaurant', '').replace('_',' '))
-
+    const strippedArr = singularArr.map(item => item.replace(' restaurant', '').replace('_', ' '));
     const newArray = [];
     strippedArr.forEach((item) => {
       if (newArray.indexOf(item) === -1) newArray.push(item);
@@ -77,14 +73,9 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
     summaryData.ratings.foursquare = foursquareData.rating;
     summaryData.bestPhoto = getBestPhoto(foursquareData.bestPhoto);
     summaryData.names.foursquare = foursquareData.name;
-
     if (foursquareData.price) summaryData.prices.foursquare = foursquareData.price.tier;
     extractCategoriesFoursquare(foursquareData.categories);
-
-    // add foursquare photos
-    if (foursquarePhotos) {
-      photosFoursquare(foursquarePhotos.items);
-    }
+    if (foursquarePhotos) photosFoursquare(foursquarePhotos.items);
   }
 
   // add Yelp data
