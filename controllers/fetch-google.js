@@ -11,6 +11,7 @@ const fetchGoogleData = (placeId) => {
       method: 'GET',
     }).then(data => data.json());
   } catch (err) {
+    // eslint-disable-next-line
     console.error(err);
     return {};
   }
