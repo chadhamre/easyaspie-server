@@ -51,9 +51,13 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
   };
 
   const dedupCategories = (array) => {
-    const singularArr = array.map(item => pluralize.singular(item.toLowerCase()));
+    const splitArr = [];
+    array.forEach(item => item.split(/ or | \/ /).forEach(word => splitArr.push(word)));
+    const singularArr = splitArr.map(item => pluralize.singular(item.toLowerCase()));
+    const strippedArr = singularArr.map(item => item.replace(' restaurant', '').replace('_',' '))
+
     const newArray = [];
-    singularArr.forEach((item) => {
+    strippedArr.forEach((item) => {
       if (newArray.indexOf(item) === -1) newArray.push(item);
     });
     summaryData.categories = newArray;
