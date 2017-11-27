@@ -6,10 +6,11 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
   // create object structure
   const summaryData = {
     ratings: {},
+    names: {},
     location: {},
     photos: [],
     prices: {},
-    categories: [],
+    categories: []
   };
 
   // helper functions -----------------------------------------
@@ -65,11 +66,14 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
   summaryData.phone = googleData.result.international_phone_number;
   summaryData.location = googleData.result.geometry.location;
   summaryData.ratings.google = 2 * googleData.result.rating;
+  summaryData.names.google = googleData.result.name;
 
   // add foursquare data
   if (foursquareData) {
     summaryData.ratings.foursquare = foursquareData.rating;
     summaryData.bestPhoto = getBestPhoto(foursquareData.bestPhoto);
+    summaryData.names.foursquare = foursquareData.name;
+
     if (foursquareData.price) summaryData.prices.foursquare = foursquareData.price.tier;
     extractCategoriesFoursquare(foursquareData.categories);
 
@@ -82,6 +86,7 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
   // add Yelp data
   if (yelpData) {
     summaryData.ratings.yelp = 2 * yelpData.rating;
+    summaryData.names.yelp = yelpData.name;
     if (yelpData.price) summaryData.prices.yelp = yelpData.price.length;
     addYelpPhotos(yelpData.photos);
     addYelpCategories(yelpData.categories);
