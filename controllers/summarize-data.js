@@ -32,7 +32,7 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
 
   // yelp helper functions
   const addYelpPhotos = (photos) => {
-    photos.forEach(photo => summaryData.photos.push(photo));
+    photos.forEach(photo => summaryData.photos.push({ uri: photo }));
   };
 
   const addYelpCategories = (items) => {
@@ -81,7 +81,7 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
     summaryData.ratings.foursquare = foursquareData.rating;
     summaryData.bestPhoto = getBestPhoto(foursquareData.bestPhoto);
     summaryData.names.foursquare = foursquareData.name;
-    summaryData.review_count.foursqaure = foursquareData.stats.tipCount;
+    summaryData.review_count.foursquare = foursquareData.stats.tipCount;
 
     if (foursquareData.price) summaryData.prices.foursquare = foursquareData.price.tier;
     extractCategoriesFoursquare(foursquareData.categories);
