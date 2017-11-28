@@ -9,7 +9,7 @@ class FacebookService extends GeneralService {
       const nameQuery = encodeURI(googleData.name);
       const googleLat = googleData.geometry.location.lat;
       const googleLng = googleData.geometry.location.lng;
-      const apiSlug = '  https://graph.facebook.com/v2.11/search';
+      const apiSlug = 'https://graph.facebook.com/v2.11/search';
       const url = `${apiSlug}?type=place&categories=["FOOD_BEVERAGE"]&center=${googleLat},${
         googleLng
       }&distance=100`;
@@ -33,7 +33,8 @@ class FacebookService extends GeneralService {
             if (matches.bestMatch.rating > 0.75) {
               const match = matches.bestMatch.target;
               resolve(ids[titles.indexOf(match)]);
-              console.log(match);
+            } else {
+              resolve('NA');
             }
           });
       } catch (err) {
@@ -44,22 +45,36 @@ class FacebookService extends GeneralService {
   }
   // fetch data
   fetch(id) {
-    console.log(id);
+    const url = `https://graph.facebook.com/v2.11/${
+      id
+    }?fields=name,overall_star_rating,website,category,category_list,about,price_range,restaurant_specialties,likes,rating_count`;
+    try {
+      return fetch(url, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${process.env.FACEBOOK_TOKEN}`,
+        },
+      }).then(data => data.json());
+    } catch (err) {
+      // eslint-disable-next-line
+      console.error(err);
+      return {};
+    }
   }
   // extract summary
   extract(data) {
-    //   const categories = data.categories.map(category => category.alias);
-    //   const summary = super.summaryStructure(
-    //     'yelp',
-    //     data.name ? data.name : null,
-    //     data.rating ? 2 * data.rating : null,
-    //     data.price ? data.price.length : null,
-    //     data.review_count ? data.review_count : null,
-    //     null,
-    //     categories || null,
-    //     null,
-    //   );
-    //   return summary;
+    const categories = data.category_list.map(category => category.name);
+    const summary = super.summaryStructure(
+      'facebook',
+      data.name ? data.name : null,
+      data.overall_star_rating ? 2 * data.overall_star_rating : null,
+      data.price_range ? data.price_range.length : null,
+      data.rating_count ? data.rating_count : null,
+      null,
+      categories || null,
+      null,
+    );
+    return summary;
   }
 }
 
