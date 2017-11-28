@@ -40,8 +40,8 @@ class FoursquareService extends GeneralService {
   }
 
   // the fetch method tries to fetch data for a given foursquare ID
-  fetch(foursquareId) {
-    const url = `https://api.foursquare.com/v2/venues/${foursquareId}?client_id=${
+  fetch(id) {
+    const url = `https://api.foursquare.com/v2/venues/${id}?client_id=${
       process.env.FOURSQUARE_CLIENT_ID
     }&client_secret=${process.env.FOURSQUARE_CLIENT_SECRET}&v=20171124`;
     try {
@@ -58,14 +58,14 @@ class FoursquareService extends GeneralService {
   }
 
   // the extract method extracts the important information form the foursquare data
-  extract(foursquareData) {
+  extract(data) {
     // extract common data
     const summary = super.summaryStructure(
       'foursquare',
-      foursquareData.name ? foursquareData.name : null,
-      foursquareData.rating ? foursquareData.rating : null,
-      foursquareData.price ? foursquareData.price.tier : null,
-      foursquareData.stats ? foursquareData.stats.tipCount : null,
+      data.name ? data.name : null,
+      data.rating ? data.rating : null,
+      data.price ? data.price.tier : null,
+      data.stats ? data.stats.tipCount : null,
     );
 
     // magic

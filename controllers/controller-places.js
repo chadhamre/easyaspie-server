@@ -1,6 +1,7 @@
 // import controllers
 const fetchGoogleData = require('./service-google');
 const FoursquareService = require('./service-foursquare');
+const YelpService = require('./service-yelp');
 
 // controller
 const placesController = async (ctx) => {
@@ -14,10 +15,10 @@ const placesController = async (ctx) => {
   // parse google data
   const summary = {
     name: googleData.name,
-    location: googleData.geometry.location,
-    place_id: googleData.place_id,
-    address: googleData.formatted_address,
     phone: googleData.international_phone_number,
+    address: googleData.formatted_address,
+    place_id: googleData.place_id,
+    location: googleData.geometry.location,
     names: {},
     ratings: {},
     counts: {},
@@ -25,7 +26,7 @@ const placesController = async (ctx) => {
   };
 
   // construct array of services
-  const services = [new FoursquareService()];
+  const services = [new FoursquareService(), new YelpService()];
   const promises = services.map(async (service) => {
     const id = await service.map(googleData);
     const data = await service.fetch(id);
