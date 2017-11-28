@@ -16,3 +16,6 @@
 
 ##### Place with low amount of information:
 - Ferry terminal in Yangon: ChIJ7TrmonzswTARjVO_WSl79w0
+
+##### Veggie places
+- All you eat is love: ChIJl0ZZHxujpBIRN2y9xZrUuRI

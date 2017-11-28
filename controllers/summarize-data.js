@@ -2,7 +2,7 @@
 const pluralize = require('pluralize');
 
 // this function summarizes the data for the front-end
-const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData) => {
+const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData, happycowData) => {
   // create object structure
   const summaryData = {
     ratings: {},
@@ -100,6 +100,12 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
     addYelpPhotos(yelpData.photos);
     addYelpCategories(yelpData.categories);
     summaryData.review_count.yelp = yelpData.review_count;
+  }
+
+  // add HappyCow data
+  if (happycowData) {
+    summaryData.ratings.happycow = 2 * happycowData.avg;
+    summaryData.review_count.happycow = Number(happycowData.number);
   }
 
   // summarizing functions
