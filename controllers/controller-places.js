@@ -4,6 +4,7 @@ const FoursquareService = require('./service-foursquare');
 const YelpService = require('./service-yelp');
 const HappyCowService = require('./service-happycow');
 const GeneralService = require('./service-general');
+const FacebookService = require('./service-facebook');
 
 // controller
 const placesController = async (ctx) => {
@@ -37,7 +38,12 @@ const placesController = async (ctx) => {
 
   let photos;
   // construct array of services
-  const services = [new FoursquareService(), new YelpService(), new HappyCowService()];
+  const services = [
+    new FoursquareService(),
+    new YelpService(),
+    new HappyCowService(),
+    new FacebookService(),
+  ];
   const promises = services.map(async (service) => {
     const id = await service.map(googleData);
     if (id !== 'NA') {
