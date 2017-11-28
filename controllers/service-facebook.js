@@ -24,6 +24,7 @@ class FacebookService extends GeneralService {
           .then((data) => {
             const titles = [];
             const ids = [];
+            console.log(data.data);
             data.data.forEach((item) => {
               ids.push(item.id);
               titles.push(item.name);
