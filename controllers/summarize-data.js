@@ -10,8 +10,9 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
     location: {},
     prices: {},
     categories: [],
-    review_count: {},
+    count: {},
     photos: [],
+    hours: [],
   };
 
   // helper functions -----------------------------------------
@@ -42,11 +43,6 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
   };
 
   // generate averages
-  const getAverage = (object, name) => {
-    const keys = Object.keys(object);
-    const total = keys.reduce((accum, key) => accum + summaryData[`${name}s`][key], 0);
-    summaryData[name] = (total / keys.length).toFixed(1);
-  };
 
   const dedupCategories = (array) => {
     const splitArr = [];
@@ -75,17 +71,8 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
     summaryData.review_count.google = googleData.result.reviews.length;
   }
 
-
   // add foursquare data
   if (foursquareData) {
-    summaryData.ratings.foursquare = foursquareData.rating;
-    summaryData.bestPhoto = getBestPhoto(foursquareData.bestPhoto);
-    summaryData.names.foursquare = foursquareData.name;
-    summaryData.review_count.foursqaure = foursquareData.stats.tipCount;
-
-    if (foursquareData.price) summaryData.prices.foursquare = foursquareData.price.tier;
-    extractCategoriesFoursquare(foursquareData.categories);
-
     // add foursquare photos
     if (foursquarePhotos) {
       photosFoursquare(foursquarePhotos.items);
@@ -94,12 +81,8 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
 
   // add Yelp data
   if (yelpData) {
-    summaryData.ratings.yelp = 2 * yelpData.rating;
-    summaryData.names.yelp = yelpData.name;
-    if (yelpData.price) summaryData.prices.yelp = yelpData.price.length;
     addYelpPhotos(yelpData.photos);
     addYelpCategories(yelpData.categories);
-    summaryData.review_count.yelp = yelpData.review_count;
   }
 
   // summarizing functions

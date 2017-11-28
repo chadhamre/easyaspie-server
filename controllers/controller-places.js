@@ -2,6 +2,7 @@
 const fetchGoogleData = require('./service-google');
 const FoursquareService = require('./service-foursquare');
 const YelpService = require('./service-yelp');
+const HappyCowService = require('./service-happycow');
 
 // controller
 const placesController = async (ctx) => {
@@ -19,14 +20,17 @@ const placesController = async (ctx) => {
     address: googleData.formatted_address,
     place_id: googleData.place_id,
     location: googleData.geometry.location,
+    hours: googleData.opening_hours.weekday_text ? googleData.opening_hours.weekday_text : null,
     names: {},
-    ratings: {},
+    ratings: {
+      google: 2 * googleData.rating,
+    },
     counts: {},
     prices: {},
   };
 
   // construct array of services
-  const services = [new FoursquareService(), new YelpService()];
+  const services = [new FoursquareService(), new YelpService(), new HappyCowService()];
   const promises = services.map(async (service) => {
     const id = await service.map(googleData);
     const data = await service.fetch(id);
