@@ -57,6 +57,23 @@ class FoursquareService extends GeneralService {
     }
   }
 
+  fetchPhotos(id) {
+    const url = `https://api.foursquare.com/v2/venues/${id}/photos?limit=100&client_id=${
+      process.env.FOURSQUARE_CLIENT_ID
+    }&client_secret=${process.env.FOURSQUARE_CLIENT_SECRET}&v=20171124`;
+    try {
+      return fetch(url, {
+        method: 'GET',
+      })
+        .then(data => data.json())
+        .then(data => data.response.photos.items);
+    } catch (err) {
+      // eslint-disable-next-line
+      console.error(err);
+      return {};
+    }
+  }
+
   // the extract method extracts the important information form the foursquare data
   extract(data) {
     const categories = data.categories.map(category => category.shortName);
@@ -73,6 +90,7 @@ class FoursquareService extends GeneralService {
         }`
         : null,
       categories || null,
+      [],
     );
     return summary;
   }

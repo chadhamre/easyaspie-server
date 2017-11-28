@@ -80,7 +80,7 @@ class HappyCowService extends GeneralService {
       null,
       data.count ? data.count : null,
       null,
-      [],
+      null,
     );
     return summary;
   }

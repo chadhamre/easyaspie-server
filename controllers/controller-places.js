@@ -22,7 +22,9 @@ const placesController = async (ctx) => {
     place_id: googleData.place_id,
     location: googleData.geometry.location,
     hours: googleData.opening_hours.weekday_text ? googleData.opening_hours.weekday_text : null,
-    names: {},
+    names: {
+      google: googleData.name,
+    },
     ratings: {
       google: 2 * googleData.rating,
     },
@@ -30,8 +32,10 @@ const placesController = async (ctx) => {
     prices: {},
     bestPhoto: null,
     categories: {},
+    photos: [],
   };
 
+  let photos;
   // construct array of services
   const services = [new FoursquareService(), new YelpService(), new HappyCowService()];
   const promises = services.map(async (service) => {
@@ -39,7 +43,9 @@ const placesController = async (ctx) => {
     if (id !== 'NA') {
       const data = await service.fetch(id);
       const summary = await service.extract(data);
-      console.log(summary);
+      if (service.fetchPhotos) {
+        summary.photos = await service.fetchPhotos(id);
+      }
       return summary;
     }
   });
@@ -50,7 +56,11 @@ const placesController = async (ctx) => {
       for (key in obj) {
         if (key === 'bestPhoto') {
           if (obj[key]) summary.bestPhoto = obj[key];
-        } else {
+        } else if (key === 'photos' && obj[key] && obj[key].length > 1) {
+          obj[key].map((el) => {
+            summary.photos.push({ uri: `${el.prefix}${el.width}x${el.height}${el.suffix}` });
+          });
+        } else if (obj[key] !== null) {
           const service = Object.keys(obj[key])[0];
           summary[key][service] = obj[key][service];
         }
@@ -59,6 +69,7 @@ const placesController = async (ctx) => {
   });
 
   // combine source data
+
   summary.categories = GeneralService.dedupCategories(summary.categories);
   summary.rating = GeneralService.getAverage(summary.ratings);
   summary.price = GeneralService.getAverage(summary.prices);

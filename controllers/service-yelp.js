@@ -59,6 +59,7 @@ class YelpService extends GeneralService {
       data.review_count ? data.review_count : null,
       null,
       categories || null,
+      null,
     );
     return summary;
   }
