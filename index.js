@@ -8,4 +8,5 @@ const app = new Koa();
 app
   .use(logger())
   .use(router.routes())
+  .use(router.allowedMethods())
   .listen(process.env.PORT || 4000);
