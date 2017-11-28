@@ -2,6 +2,7 @@ const GeneralService = require('./service-general');
 const fetch = require('node-fetch');
 
 class YelpService extends GeneralService {
+  // find id
   map(googleData) {
     return new Promise((resolve) => {
       const nameQuery = encodeURI(googleData.name);
@@ -32,6 +33,7 @@ class YelpService extends GeneralService {
       }
     });
   }
+  // fetch data
   fetch(id) {
     const url = `https://api.yelp.com/v3/businesses/${encodeURI(id)}`;
     try {
@@ -47,6 +49,7 @@ class YelpService extends GeneralService {
       return {};
     }
   }
+  // extract summary
   extract(data) {
     const summary = super.summaryStructure(
       'yelp',
