@@ -59,18 +59,21 @@ class FoursquareService extends GeneralService {
 
   // the extract method extracts the important information form the foursquare data
   extract(data) {
+    const categories = data.categories.map(category => category.shortName);
     // extract common data
     const summary = super.summaryStructure(
       'foursquare',
-      data.name ? data.name : null,
-      data.rating ? data.rating : null,
+      data.name || null,
+      data.rating || null,
       data.price ? data.price.tier : null,
       data.stats ? data.stats.tipCount : null,
+      data.bestPhoto
+        ? `${data.bestPhoto.prefix}${data.bestPhoto.width}x${data.bestPhoto.height}${
+          data.bestPhoto.suffix
+        }`
+        : null,
+      categories || null,
     );
-
-    // magic
-    // summary.bestPhoto = getBestPhoto(foursquareData.bestPhoto);
-    // extractCategoriesFoursquare(foursquareData.categories);
     return summary;
   }
 }

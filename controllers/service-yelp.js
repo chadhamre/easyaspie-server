@@ -21,9 +21,8 @@ class YelpService extends GeneralService {
         })
           .then(data => data.json())
           .then((data) => {
-            if (data.total > 0) {
-              resolve(data.businesses[0].id);
-            }
+            if (data.error) return resolve('NA');
+            if (data.total > 0) resolve(data.businesses[0].id);
             resolve('NA');
           });
       } catch (err) {
@@ -51,12 +50,15 @@ class YelpService extends GeneralService {
   }
   // extract summary
   extract(data) {
+    const categories = data.categories.map(category => category.alias);
     const summary = super.summaryStructure(
       'yelp',
       data.name ? data.name : null,
       data.rating ? 2 * data.rating : null,
       data.price ? data.price.length : null,
       data.review_count ? data.review_count : null,
+      null,
+      categories || null,
     );
     return summary;
   }

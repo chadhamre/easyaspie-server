@@ -3,6 +3,7 @@ const fetchGoogleData = require('./service-google');
 const FoursquareService = require('./service-foursquare');
 const YelpService = require('./service-yelp');
 const HappyCowService = require('./service-happycow');
+const GeneralService = require('./service-general');
 
 // controller
 const placesController = async (ctx) => {
@@ -27,27 +28,42 @@ const placesController = async (ctx) => {
     },
     counts: {},
     prices: {},
+    bestPhoto: null,
+    categories: {},
   };
 
   // construct array of services
   const services = [new FoursquareService(), new YelpService(), new HappyCowService()];
   const promises = services.map(async (service) => {
     const id = await service.map(googleData);
-    const data = await service.fetch(id);
-    const summary = await service.extract(data);
-    return summary;
+    if (id !== 'NA') {
+      const data = await service.fetch(id);
+      const summary = await service.extract(data);
+      console.log(summary);
+      return summary;
+    }
   });
 
   // resolve all promises
   await Promise.all(promises).then((arr) => {
     arr.forEach((obj) => {
       for (key in obj) {
-        const service = Object.keys(obj[key])[0];
-        summary[key][service] = obj[key][service];
+        if (key === 'bestPhoto') {
+          if (obj[key]) summary.bestPhoto = obj[key];
+        } else {
+          const service = Object.keys(obj[key])[0];
+          summary[key][service] = obj[key][service];
+        }
       }
     });
   });
 
+  // combine source data
+  summary.categories = GeneralService.dedupCategories(summary.categories);
+  summary.rating = GeneralService.getAverage(summary.ratings);
+  summary.price = GeneralService.getAverage(summary.prices);
+
+  // return data to front end
   ctx.body = summary;
   ctx.status = 200;
 };
