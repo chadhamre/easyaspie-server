@@ -10,11 +10,18 @@ class GeneralService {
   //   // does some common magic
   // }
 
-  standardData(name, rating) {
-    return {
-      name,
-      rating,
+  summaryStructure(service, name, rating, price, count) {
+    const summary = {
+      names: {},
+      ratings: {},
+      prices: {},
+      counts: {},
     };
+    if (name) summary.names[service] = name;
+    if (rating) summary.ratings[service] = rating;
+    if (price) summary.prices[service] = price;
+    if (count) summary.counts[service] = count;
+    return summary;
   }
 }
 
