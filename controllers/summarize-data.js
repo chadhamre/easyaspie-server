@@ -2,23 +2,25 @@
 const pluralize = require('pluralize');
 
 // this function summarizes the data for the front-end
-const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData) => {
+const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData, happycowData) => {
   // create object structure
   const summaryData = {
     ratings: {},
     names: {},
     location: {},
-    photos: [],
     prices: {},
     categories: [],
+    review_count: {},
+    photos: [],
   };
 
-  // foursqure helper functions
+  
+  // foursquare helper functions
   const getBestPhoto = el => `${el.prefix}${el.width}x${el.height}${el.suffix}`;
 
   const photosFoursquare = (items) => {
     items.forEach((el) => {
-      summaryData.photos.push(`${el.prefix}${el.width}x${el.height}${el.suffix}`);
+      summaryData.photos.push({ uri: `${el.prefix}${el.width}x${el.height}${el.suffix}` });
     });
   };
 
@@ -30,7 +32,7 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
 
   // yelp helper functions
   const addYelpPhotos = (photos) => {
-    photos.forEach(photo => summaryData.photos.push(photo));
+    photos.forEach(photo => summaryData.photos.push({ uri: photo }));
   };
 
   const addYelpCategories = (items) => {
@@ -67,12 +69,19 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
   summaryData.location = googleData.result.geometry.location;
   summaryData.ratings.google = 2 * googleData.result.rating;
   summaryData.names.google = googleData.result.name;
+  if (!googleData.result.reviews) {
+    summaryData.review_count.google = 0;
+  } else {
+    summaryData.review_count.google = googleData.result.reviews.length;
+  }
+
 
   // add foursquare data
   if (foursquareData) {
     summaryData.ratings.foursquare = foursquareData.rating;
     summaryData.bestPhoto = getBestPhoto(foursquareData.bestPhoto);
     summaryData.names.foursquare = foursquareData.name;
+    summaryData.review_count.foursquare = foursquareData.stats.tipCount;
     if (foursquareData.price) summaryData.prices.foursquare = foursquareData.price.tier;
     extractCategoriesFoursquare(foursquareData.categories);
     if (foursquarePhotos) photosFoursquare(foursquarePhotos.items);
@@ -85,6 +94,13 @@ const mingleData = async (googleData, foursquareData, foursquarePhotos, yelpData
     if (yelpData.price) summaryData.prices.yelp = yelpData.price.length;
     addYelpPhotos(yelpData.photos);
     addYelpCategories(yelpData.categories);
+    summaryData.review_count.yelp = yelpData.review_count;
+  }
+
+  // add HappyCow data
+  if (happycowData) {
+    summaryData.ratings.happycow = 2 * happycowData.avg;
+    summaryData.review_count.happycow = Number(happycowData.number);
   }
 
   // summarizing functions
