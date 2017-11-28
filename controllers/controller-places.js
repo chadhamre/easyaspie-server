@@ -37,7 +37,8 @@ const placesController = async (ctx) => {
   await Promise.all(promises).then((arr) => {
     arr.forEach((obj) => {
       for (key in obj) {
-        summary[key].foursquare = obj[key].foursquare;
+        const service = Object.keys(obj[key])[0];
+        summary[key][service] = obj[key][service];
       }
     });
   });
