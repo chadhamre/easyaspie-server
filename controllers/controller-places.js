@@ -22,7 +22,10 @@ const placesController = async (ctx) => {
     address: googleData.formatted_address,
     place_id: googleData.place_id,
     location: googleData.geometry.location,
-    hours: googleData.opening_hours.weekday_text ? googleData.opening_hours.weekday_text : null,
+    hours:
+      googleData.opening_hours && googleData.opening_hours.weekday_text
+        ? googleData.opening_hours.weekday_text
+        : null,
     names: {
       google: googleData.name,
     },
