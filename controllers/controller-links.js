@@ -43,9 +43,8 @@ const LinksController = async (ctx) => {
     'ChIJ7Rdn5mZnzB0RyOHHPQvv-1Q',
     'ChIJg6qKzSFnzB0RqczGhA4pPVY',
   ];
-  let html = '';
-  const links = ids.forEach(id => (html += `<a href=/api/v1/places/${id}>${id}</a><br/>`));
-  ctx.body = html;
+
+  ctx.body = map(id => (html += `<a href=/api/v1/places/${id}>${id}</a><br/>`)).join('');
 };
 
 // export module

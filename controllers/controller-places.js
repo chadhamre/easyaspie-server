@@ -69,7 +69,7 @@ const placesController = async (ctx) => {
         if (key === 'bestPhoto') {
           if (obj[key]) summary.bestPhoto = obj[key];
         } else if (key === 'photos' && obj[key] && obj[key].length > 1) {
-          obj[key].map((el) => {
+          obj[key].forEach((el) => {
             summary.photos.push({ uri: `${el.prefix}${el.width}x${el.height}${el.suffix}` });
           });
         } else if (key === 'cover') {

@@ -7,11 +7,6 @@ const stringSimilarity = require('string-similarity');
 class FoursquareService extends GeneralService {
   // the map method tries to match a google places ID with a foursquare ID
   static async map(googleData) {
-    // build name query param
-    const nameQuery = googleData.name
-      .split(' ')
-      .map(el => `&query=${encodeURI(el)}`)
-      .join('');
     // build api URL
     const googleLat = googleData.geometry.location.lat;
     const googleLng = googleData.geometry.location.lng;

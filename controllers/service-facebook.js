@@ -6,7 +6,6 @@ const removeDiacritics = require('diacritics').remove;
 class FacebookService extends GeneralService {
   // find id
   static async map(googleData) {
-    const nameQuery = removeDiacritics(googleData.name.replace(/\s/g, '').toLowerCase());
     const googleLat = googleData.geometry.location.lat;
     const googleLng = googleData.geometry.location.lng;
     const apiSlug = 'https://graph.facebook.com/v2.11/search';
