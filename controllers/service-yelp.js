@@ -3,37 +3,35 @@ const fetch = require('node-fetch');
 
 class YelpService extends GeneralService {
   // find id
-  map(googleData) {
-    return new Promise((resolve) => {
-      const nameQuery = encodeURI(googleData.name);
-      const googleLat = googleData.geometry.location.lat;
-      const googleLng = googleData.geometry.location.lng;
-      const apiSlug = 'https://api.yelp.com/v3/businesses/search';
-      const url = `${apiSlug}?latitude=${googleLat}&longitude=${googleLng}&term=${
-        nameQuery
-      }&radius=100&limit=1`;
-      try {
-        fetch(url, {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${process.env.YELP_TOKEN}`,
-          },
-        })
-          .then(data => data.json())
-          .then((data) => {
-            if (data.error) return resolve('NA');
-            if (data.total > 0) resolve(data.businesses[0].id);
-            resolve('NA');
-          });
-      } catch (err) {
-        // eslint-disable-next-line
-        console.error(err);
-        resolve('NA');
-      }
-    });
+  static async map(googleData) {
+    const nameQuery = encodeURI(googleData.name);
+    const googleLat = googleData.geometry.location.lat;
+    const googleLng = googleData.geometry.location.lng;
+    const apiSlug = 'https://api.yelp.com/v3/businesses/search';
+    const url = `${apiSlug}?latitude=${googleLat}&longitude=${googleLng}&term=${
+      nameQuery
+    }&radius=100&limit=1`;
+    try {
+      return await fetch(url, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${process.env.YELP_TOKEN}`,
+        },
+      })
+        .then(data => data.json())
+        .then((data) => {
+          if (data.error) return 'NA';
+          if (data.total > 0) return data.businesses[0].id;
+          return 'NA';
+        });
+    } catch (err) {
+      // eslint-disable-next-line
+      console.error(err);
+      return 'NA';
+    }
   }
   // fetch data
-  fetch(id) {
+  static fetch(id) {
     const url = `https://api.yelp.com/v3/businesses/${encodeURI(id)}`;
     try {
       return fetch(url, {
@@ -49,7 +47,7 @@ class YelpService extends GeneralService {
     }
   }
   // extract summary
-  extract(data) {
+  static extract(data) {
     const categories = data.categories.map(category => category.alias);
     const summary = super.summaryStructure(
       'yelp',

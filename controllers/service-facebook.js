@@ -5,49 +5,45 @@ const removeDiacritics = require('diacritics').remove;
 
 class FacebookService extends GeneralService {
   // find id
-  map(googleData) {
-    return new Promise((resolve) => {
-      const nameQuery = removeDiacritics(googleData.name.replace(/\s/g, '').toLowerCase());
-      const googleLat = googleData.geometry.location.lat;
-      const googleLng = googleData.geometry.location.lng;
-      const apiSlug = 'https://graph.facebook.com/v2.11/search';
-      const url = `${apiSlug}?type=place&center=${googleLat},${
-        googleLng
-      }&distance=100`;
-      try {
-        fetch(url, {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${process.env.FACEBOOK_TOKEN}`,
-          },
-        })
-          .then(data => data.json())
-          .then((data) => {
-            const titles = [];
-            const ids = [];
-            data.data.forEach((item) => {
-              ids.push(item.id);
-              titles.push(item.name);
-            });
-
-            if (titles.length === 0) return resolve('NA');
-            const matches = stringSimilarity.findBestMatch(nameQuery, titles);
-            if (matches.bestMatch.rating >= 0.5) {
-              const match = matches.bestMatch.target;
-              resolve(ids[titles.indexOf(match)]);
-            } else {
-              resolve('NA');
-            }
+  static async map(googleData) {
+    const nameQuery = removeDiacritics(googleData.name.replace(/\s/g, '').toLowerCase());
+    const googleLat = googleData.geometry.location.lat;
+    const googleLng = googleData.geometry.location.lng;
+    const apiSlug = 'https://graph.facebook.com/v2.11/search';
+    const url = `${apiSlug}?type=place&center=${googleLat},${googleLng}&distance=100`;
+    try {
+      return await fetch(url, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${process.env.FACEBOOK_TOKEN}`,
+        },
+      })
+        .then(data => data.json())
+        .then((data) => {
+          const titles = [];
+          const ids = [];
+          data.data.forEach((item) => {
+            ids.push(item.id);
+            titles.push(item.name);
           });
-      } catch (err) {
-        // eslint-disable-next-line
-        console.error(err);
-        resolve('NA');
-      }
-    });
+
+          if (titles.length === 0) return 'NA';
+          const matches = stringSimilarity.findBestMatch(nameQuery, titles);
+          if (matches.bestMatch.rating >= 0.5) {
+            const match = matches.bestMatch.target;
+            return ids[titles.indexOf(match)];
+          }
+          return 'NA';
+        });
+    } catch (err) {
+      // eslint-disable-next-line
+      console.error(err);
+      return 'NA';
+    }
   }
+
   // fetch data
-  fetch(id) {
+  static fetch(id) {
     const url = `https://graph.facebook.com/v2.11/${
       id
     }?fields=name,overall_star_rating,website,category,category_list,about,price_range,restaurant_specialties,likes,rating_count,cover`;
@@ -65,7 +61,7 @@ class FacebookService extends GeneralService {
     }
   }
   // extract summary
-  extract(data) {
+  static extract(data) {
     const categories = data.category_list.map(category => category.name);
     const summary = super.summaryStructure(
       'facebook',

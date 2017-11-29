@@ -24,7 +24,17 @@ class GeneralService {
     return newArray;
   }
 
-  summaryStructure(service, name, rating, price, count, bestPhoto, categories, photos, cover) {
+  static summaryStructure(
+    service,
+    name,
+    rating,
+    price,
+    count,
+    bestPhoto,
+    categories,
+    photos,
+    cover,
+  ) {
     const summary = {
       names: {},
       ratings: {},

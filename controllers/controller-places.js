@@ -41,12 +41,7 @@ const placesController = async (ctx) => {
   };
 
   // construct array of services
-  const services = [
-    new FoursquareService(),
-    new YelpService(),
-    new HappyCowService(),
-    new FacebookService(),
-  ];
+  const services = [FoursquareService, YelpService, HappyCowService, FacebookService];
   const promises = services.map(async (service) => {
     const id = await service.map(googleData);
     if (id !== 'NA') {
@@ -57,6 +52,7 @@ const placesController = async (ctx) => {
       }
       return summary;
     }
+    return null;
   });
 
   // resolve all promises
