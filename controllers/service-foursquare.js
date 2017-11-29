@@ -13,7 +13,7 @@ class FoursquareService extends GeneralService {
     const apiSlug = 'https://api.foursquare.com/v2/venues/search?ll=';
     const clientSecret = process.env.FOURSQUARE_CLIENT_SECRET;
     const clientId = process.env.FOURSQUARE_CLIENT_ID;
-    const url = `${apiSlug}${googleLat},${googleLng}&radius=50&client_id=${
+    const url = `${apiSlug}${googleLat},${googleLng}&radius=300&client_id=${
       clientId
     }&client_secret=${clientSecret}&v=20171124`;
     // try searching foursquare
