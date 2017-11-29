@@ -27,10 +27,15 @@ class HappyCowService extends GeneralService {
       const titles = await promisify(xray(data, ['.thumbnail__details@data-name']))();
       if (titles.length > 0) {
         const links = await promisify(xray(data, ['.thumbnail__link@href']))();
-        const matches = stringSimilarity.findBestMatch(googleData.name, titles);
-        if (matches.bestMatch.rating > 0.55) {
+        const titlesClean = titles.map(title =>
+          title.toLowerCase().replace(/restaurant|the\srestaurant/g, ''));
+        const nameQueryClean = googleData.name
+          .toLowerCase()
+          .replace(/restaurant|the\srestaurant/g, '');
+        const matches = stringSimilarity.findBestMatch(nameQueryClean, titlesClean);
+        if (matches.bestMatch.rating > 0.6) {
           const match = matches.bestMatch.target;
-          return links[titles.indexOf(match)];
+          return links[titlesClean.indexOf(match)];
         }
         return 'NA';
       }

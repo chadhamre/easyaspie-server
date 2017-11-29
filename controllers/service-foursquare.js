@@ -18,7 +18,7 @@ class FoursquareService extends GeneralService {
     const apiSlug = 'https://api.foursquare.com/v2/venues/search?ll=';
     const clientSecret = process.env.FOURSQUARE_CLIENT_SECRET;
     const clientId = process.env.FOURSQUARE_CLIENT_ID;
-    const url = `${apiSlug}${googleLat},${googleLng}${nameQuery}&radius=100&client_id=${
+    const url = `${apiSlug}${googleLat},${googleLng}&radius=50&client_id=${
       clientId
     }&client_secret=${clientSecret}&v=20171124`;
     // try searching foursquare
@@ -34,14 +34,18 @@ class FoursquareService extends GeneralService {
               titles.push(item.name);
             });
             if (titles.length === 0) return 'NA';
-            const matches = stringSimilarity.findBestMatch(nameQuery, titles);
-            if (matches.bestMatch.rating >= 0.4) {
+            const nameQueryClean = googleData.name
+              .toLowerCase()
+              .replace(/restaurant|the\srestaurant/g, '');
+            const titlesClean = titles.map(title =>
+              title.toLowerCase().replace(/restaurant|the\srestaurant/g, ''));
+            const matches = stringSimilarity.findBestMatch(nameQueryClean, titlesClean);
+            if (matches.bestMatch.rating >= 0.6) {
               const match = matches.bestMatch.target;
-              return ids[titles.indexOf(match)];
+              return ids[titlesClean.indexOf(match)];
             }
             return 'NA';
           }
-          resolve('NA');
         });
     } catch (err) {
       // eslint-disable-next-line

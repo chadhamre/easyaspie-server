@@ -30,13 +30,14 @@ class FacebookService extends GeneralService {
           });
 
           if (titles.length === 0) return 'NA';
-          const nameQueryClean = nameQuery
+          const nameQueryClean = googleData.name
             .toLowerCase()
-            .replace(' the restaurant' || ' retaurant', '');
+            .replace(/restaurant|the\srestaurant/g, '');
           const titlesClean = titles.map(title =>
-            title.toLowerCase().replace(' the restaurant' || ' restaurant', ''));
+            title.toLowerCase().replace(/restaurant|the\srestaurant/g, ''));
           const matches = stringSimilarity.findBestMatch(nameQueryClean, titlesClean);
-          if (matches.bestMatch.rating >= 0.5) {
+          console.log(matches);
+          if (matches.bestMatch.rating >= 0.6) {
             const match = matches.bestMatch.target;
             return ids[titlesClean.indexOf(match)];
           }

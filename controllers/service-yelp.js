@@ -9,7 +9,7 @@ class YelpService extends GeneralService {
     const googleLat = googleData.geometry.location.lat;
     const googleLng = googleData.geometry.location.lng;
     const apiSlug = 'https://api.yelp.com/v3/businesses/search';
-    const url = `${apiSlug}?latitude=${googleLat}&longitude=${googleLng}&radius=100&limit=20`;
+    const url = `${apiSlug}?latitude=${googleLat}&longitude=${googleLng}&radius=200&limit=20`;
     try {
       return await fetch(url, {
         method: 'GET',
@@ -19,6 +19,7 @@ class YelpService extends GeneralService {
       })
         .then(data => data.json())
         .then((data) => {
+          if (data.total === 0) return 'NA';
           if (data.error) return 'NA';
           if (data.total > 0) {
             const titles = [];
@@ -30,11 +31,11 @@ class YelpService extends GeneralService {
             if (titles.length === 0) return 'NA';
             const nameQueryClean = nameQuery
               .toLowerCase()
-              .replace(' the restaurant' || ' retaurant', '');
+              .replace(/restaurant|the\srestaurant/g, '');
             const titlesClean = titles.map(title =>
-              title.toLowerCase().replace(' the restaurant' || ' restaurant', ''));
+              title.toLowerCase().replace(/restaurant|the\srestaurant/g, ''));
             const matches = stringSimilarity.findBestMatch(nameQueryClean, titlesClean);
-            if (matches.bestMatch.rating >= 0.5) {
+            if (matches.bestMatch.rating >= 0.6) {
               const match = matches.bestMatch.target;
               return ids[titlesClean.indexOf(match)];
             }
