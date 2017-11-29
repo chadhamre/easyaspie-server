@@ -30,6 +30,7 @@ class FacebookService extends GeneralService {
               titles.push(item.name);
             });
 
+            if (titles.length === 0) return resolve('NA');
             const matches = stringSimilarity.findBestMatch(nameQuery, titles);
             if (matches.bestMatch.rating >= 0.5) {
               const match = matches.bestMatch.target;

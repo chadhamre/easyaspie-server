@@ -60,8 +60,15 @@ class HappyCowService extends GeneralService {
         })
           .then(data => data.text())
           .then((data) => {
-            xray(data, ['li > a > .details__list > meta@content'])((err, details) => {
-              resolve({ rating: details[1], count: Number(details[3]) });
+            xray(data, {
+              details: ['li > a > .details__list > meta@content'],
+              name: '.header__title',
+            })((err, parsed) => {
+              resolve({
+                rating: parsed.details[1],
+                count: Number(parsed.details[3]),
+                name: parsed.name,
+              });
             });
           });
       } catch (err) {
