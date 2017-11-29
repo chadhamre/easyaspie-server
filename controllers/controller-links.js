@@ -26,6 +26,7 @@ const LinksController = async (ctx) => {
     'ChIJEbn-paeOGGARTWVwiDwC9tQ',
     'ChIJIVHOoCF-j4ARnw6y25XWmMA',
     'ChIJ8aZslMeAhYARk2BJNvkVPyc',
+    'ChIJWZjZGj6jpBIRyx-Ib3BptuE',
   ];
   html = '';
   const links = ids.forEach(id => (html += `<a href=/api/v1/places/${id}>${id}</a><br/>`));
