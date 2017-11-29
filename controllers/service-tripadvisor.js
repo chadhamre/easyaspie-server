@@ -1,34 +1,31 @@
 const GeneralService = require('./service-general');
 const fetch = require('node-fetch');
+const Xray = require('x-ray');
 const stringSimilarity = require('string-similarity');
-const removeDiacritics = require('diacritics').remove;
+const promisify = require('es6-promisify');
 
-class FacebookService extends GeneralService {
+const xray = Xray();
+
+class TripAdvisor extends GeneralService {
   // find id
   static async map(googleData) {
-    const nameQuery = removeDiacritics(googleData.name.replace(/\s/g, '').toLowerCase());
     const googleLat = googleData.geometry.location.lat;
     const googleLng = googleData.geometry.location.lng;
-    const apiSlug = 'https://graph.facebook.com/v2.11/search';
-    const url = `${apiSlug}?type=place&center=${googleLat},${
-      googleLng
-    }&distance=100&fields=name,overall_star_rating,website,category`;
+    const url = `https://www.tripadvisor.com/GMapsLocationController?Action=update&from=Restaurants&mapProviderFeature=ta-maps-gmaps&mc=${
+      googleLat
+    },${googleLng}&mz=18&mw=500&mh=500`;
     try {
       return await fetch(url, {
         method: 'GET',
-        headers: {
-          Authorization: `Bearer ${process.env.FACEBOOK_TOKEN}`,
-        },
       })
         .then(data => data.json())
         .then((data) => {
           const titles = [];
           const ids = [];
-          data.data.forEach((item) => {
-            ids.push(item.id);
-            titles.push(item.name);
+          data.restaurants.forEach((item) => {
+            ids.push(item.customHover.titleUrl);
+            titles.push(item.customHover.title);
           });
-
           if (titles.length === 0) return 'NA';
           const nameQueryClean = googleData.name
             .toLowerCase()
@@ -50,39 +47,54 @@ class FacebookService extends GeneralService {
   }
 
   // fetch data
-  static fetch(id) {
-    const url = `https://graph.facebook.com/v2.11/${
-      id
-    }?fields=name,overall_star_rating,website,category,category_list,about,price_range,restaurant_specialties,likes,rating_count,cover`;
+  static async fetch(id) {
+    const url = `https://www.tripadvisor.com${id}`;
     try {
-      return fetch(url, {
+      let data = await fetch(url, {
         method: 'GET',
-        headers: {
-          Authorization: `Bearer ${process.env.FACEBOOK_TOKEN}`,
-        },
-      }).then(data => data.json());
+      });
+      data = await data.text();
+      // console.log(data);
+      const parsed = await promisify(xray(data, {
+        name: '.heading_title',
+        rating: 'span.ui_bubble_rating@content',
+        count: 'a.more',
+        price: 'span.header_tags.rating_and_popularity',
+      }))();
+      return {
+        name: parsed.name,
+        price: this.findRating(parsed.price),
+        count: Number(parsed.count.split(' ')[0].replace(',', '')),
+        rating: 2 * Number(parsed.rating),
+      };
     } catch (err) {
       // eslint-disable-next-line
       console.error(err);
       return {};
     }
   }
+
+  static findRating(pic) {
+    if (pic === '$ - $$') return 1.5;
+    if (pic === '$$ - $$$') return 2.5;
+    if (pic === '$$$ - $$$$') return 3.5;
+    return pic.length;
+  }
+
   // extract summary
   static extract(data) {
-    const categories = data.category_list.map(category => category.name);
     const summary = super.summaryStructure(
-      'facebook',
+      'tripadvisor',
       data.name ? data.name : null,
-      data.overall_star_rating ? 2 * data.overall_star_rating : null,
-      data.price_range ? data.price_range.length : null,
-      data.rating_count ? data.rating_count : null,
+      data.rating ? data.rating : null,
+      data.price ? data.price : null,
+      data.count ? data.count : null,
       null,
-      categories || null,
       null,
-      data.cover ? data.cover.source : null,
+      null,
     );
     return summary;
   }
 }
 
-module.exports = FacebookService;
+module.exports = TripAdvisor;

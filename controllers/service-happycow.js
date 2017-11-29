@@ -53,9 +53,6 @@ class HappyCowService extends GeneralService {
     try {
       let data = await fetch(url, {
         method: 'GET',
-        headers: {
-          Authorization: `Bearer ${process.env.YELP_TOKEN}`,
-        },
       });
       data = await data.text();
       const parsed = await promisify(xray(data, {
