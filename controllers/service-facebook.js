@@ -36,7 +36,6 @@ class FacebookService extends GeneralService {
           const titlesClean = titles.map(title =>
             title.toLowerCase().replace(/restaurant|the\srestaurant/g, ''));
           const matches = stringSimilarity.findBestMatch(nameQueryClean, titlesClean);
-          console.log(matches);
           if (matches.bestMatch.rating >= 0.6) {
             const match = matches.bestMatch.target;
             return ids[titlesClean.indexOf(match)];
@@ -60,6 +59,7 @@ class FacebookService extends GeneralService {
 
   // fetch data
   static fetch(id) {
+    console.log('FACEBOOK ID:', id);
     const url = `https://graph.facebook.com/v2.11/${
       id
     }?fields=name,overall_star_rating,website,category,category_list,about,price_range,restaurant_specialties,likes,rating_count,cover`;
