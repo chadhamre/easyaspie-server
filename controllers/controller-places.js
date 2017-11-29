@@ -80,7 +80,7 @@ const placesController = async (ctx) => {
   // combine source data
 
   summary.categories = GeneralService.dedupCategories(summary.categories);
-  summary.rating = GeneralService.getAverage(summary.ratings);
+  summary.rating = 10 * GeneralService.getAverage(summary.ratings);
   summary.price = GeneralService.getAverage(summary.prices);
 
   // return data to front end
