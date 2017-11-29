@@ -1,16 +1,17 @@
 const GeneralService = require('./service-general');
 const fetch = require('node-fetch');
 const stringSimilarity = require('string-similarity');
+const removeDiacritics = require('diacritics').remove;
 
 class FacebookService extends GeneralService {
   // find id
   map(googleData) {
     return new Promise((resolve) => {
-      const nameQuery = encodeURI(googleData.name);
+      const nameQuery = removeDiacritics(googleData.name.replace(/\s/g, '').toLowerCase());
       const googleLat = googleData.geometry.location.lat;
       const googleLng = googleData.geometry.location.lng;
       const apiSlug = 'https://graph.facebook.com/v2.11/search';
-      const url = `${apiSlug}?type=place&categories=["FOOD_BEVERAGE"]&center=${googleLat},${
+      const url = `${apiSlug}?type=place&center=${googleLat},${
         googleLng
       }&distance=100`;
       try {
@@ -29,8 +30,8 @@ class FacebookService extends GeneralService {
               titles.push(item.name);
             });
 
-            const matches = stringSimilarity.findBestMatch(googleData.name, titles);
-            if (matches.bestMatch.rating > 0.75) {
+            const matches = stringSimilarity.findBestMatch(nameQuery, titles);
+            if (matches.bestMatch.rating >= 0.5) {
               const match = matches.bestMatch.target;
               resolve(ids[titles.indexOf(match)]);
             } else {
@@ -38,6 +39,7 @@ class FacebookService extends GeneralService {
             }
           });
       } catch (err) {
+        // eslint-disable-next-line
         console.error(err);
         resolve('NA');
       }
@@ -47,7 +49,7 @@ class FacebookService extends GeneralService {
   fetch(id) {
     const url = `https://graph.facebook.com/v2.11/${
       id
-    }?fields=name,overall_star_rating,website,category,category_list,about,price_range,restaurant_specialties,likes,rating_count`;
+    }?fields=name,overall_star_rating,website,category,category_list,about,price_range,restaurant_specialties,likes,rating_count,cover`;
     try {
       return fetch(url, {
         method: 'GET',
@@ -73,6 +75,7 @@ class FacebookService extends GeneralService {
       null,
       categories || null,
       null,
+      data.cover ? data.cover.source : null,
     );
     return summary;
   }

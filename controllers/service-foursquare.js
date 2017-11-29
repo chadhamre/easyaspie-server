@@ -91,6 +91,7 @@ class FoursquareService extends GeneralService {
         : null,
       categories || null,
       [],
+      null,
     );
     return summary;
   }

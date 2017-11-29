@@ -29,7 +29,7 @@ class HappyCowService extends GeneralService {
               if (titles.length > 0) {
                 xray(data, ['.thumbnail__link@href'])((err, links) => {
                   const matches = stringSimilarity.findBestMatch(googleData.name, titles);
-                  if (matches.bestMatch.rating > 0.75) {
+                  if (matches.bestMatch.rating > 0.55) {
                     const match = matches.bestMatch.target;
                     // console.log(match,titles)
                     resolve(links[titles.indexOf(match)]);
@@ -79,6 +79,7 @@ class HappyCowService extends GeneralService {
       data.rating ? 2 * data.rating : null,
       null,
       data.count ? data.count : null,
+      null,
       null,
       null,
     );

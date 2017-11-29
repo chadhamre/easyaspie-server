@@ -24,7 +24,7 @@ class GeneralService {
     return newArray;
   }
 
-  summaryStructure(service, name, rating, price, count, bestPhoto, categories, photos) {
+  summaryStructure(service, name, rating, price, count, bestPhoto, categories, photos, cover) {
     const summary = {
       names: {},
       ratings: {},
@@ -33,6 +33,7 @@ class GeneralService {
       bestPhoto: null,
       categories: {},
       photos: null,
+      cover: null,
     };
     if (name) summary.names[service] = name;
     if (rating) summary.ratings[service] = rating;
@@ -41,6 +42,7 @@ class GeneralService {
     if (bestPhoto) summary.bestPhoto = bestPhoto;
     if (categories) summary.categories[service] = categories;
     if (photos) summary.photos = photos;
+    if (cover) summary.cover = cover;
     return summary;
   }
 }

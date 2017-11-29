@@ -22,7 +22,7 @@ const placesController = async (ctx) => {
     address: googleData.formatted_address,
     place_id: googleData.place_id,
     location: googleData.geometry.location,
-    hours: googleData.opening_hours.weekday_text ? googleData.opening_hours.weekday_text : null,
+    hours: googleData.opening_hours ? googleData.opening_hours.weekday_text : null,
     names: {
       google: googleData.name,
     },
@@ -34,9 +34,9 @@ const placesController = async (ctx) => {
     bestPhoto: null,
     categories: {},
     photos: [],
+    cover: null,
   };
 
-  let photos;
   // construct array of services
   const services = [
     new FoursquareService(),
@@ -59,13 +59,15 @@ const placesController = async (ctx) => {
   // resolve all promises
   await Promise.all(promises).then((arr) => {
     arr.forEach((obj) => {
-      for (key in obj) {
+      for (const key in obj) {
         if (key === 'bestPhoto') {
           if (obj[key]) summary.bestPhoto = obj[key];
         } else if (key === 'photos' && obj[key] && obj[key].length > 1) {
           obj[key].map((el) => {
             summary.photos.push({ uri: `${el.prefix}${el.width}x${el.height}${el.suffix}` });
           });
+        } else if (key === 'cover') {
+          if (obj[key]) summary.cover = obj[key];
         } else if (obj[key] !== null) {
           const service = Object.keys(obj[key])[0];
           summary[key][service] = obj[key][service];

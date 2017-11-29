@@ -60,6 +60,7 @@ class YelpService extends GeneralService {
       null,
       categories || null,
       null,
+      null,
     );
     return summary;
   }
