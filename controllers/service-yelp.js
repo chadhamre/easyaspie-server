@@ -1,5 +1,6 @@
 const GeneralService = require('./service-general');
 const fetch = require('node-fetch');
+const stringSimilarity = require('string-similarity');
 
 class YelpService extends GeneralService {
   // find id
@@ -8,9 +9,7 @@ class YelpService extends GeneralService {
     const googleLat = googleData.geometry.location.lat;
     const googleLng = googleData.geometry.location.lng;
     const apiSlug = 'https://api.yelp.com/v3/businesses/search';
-    const url = `${apiSlug}?latitude=${googleLat}&longitude=${googleLng}&term=${
-      nameQuery
-    }&radius=100&limit=1`;
+    const url = `${apiSlug}?latitude=${googleLat}&longitude=${googleLng}&radius=100&limit=20`;
     try {
       return await fetch(url, {
         method: 'GET',
@@ -21,8 +20,26 @@ class YelpService extends GeneralService {
         .then(data => data.json())
         .then((data) => {
           if (data.error) return 'NA';
-          if (data.total > 0) return data.businesses[0].id;
-          return 'NA';
+          if (data.total > 0) {
+            const titles = [];
+            const ids = [];
+            data.businesses.forEach((item) => {
+              ids.push(item.id);
+              titles.push(item.name);
+            });
+            if (titles.length === 0) return 'NA';
+            const nameQueryClean = nameQuery
+              .toLowerCase()
+              .replace(' the restaurant' || ' retaurant', '');
+            const titlesClean = titles.map(title =>
+              title.toLowerCase().replace(' the restaurant' || ' restaurant', ''));
+            const matches = stringSimilarity.findBestMatch(nameQueryClean, titlesClean);
+            if (matches.bestMatch.rating >= 0.5) {
+              const match = matches.bestMatch.target;
+              return ids[titlesClean.indexOf(match)];
+            }
+            return 'NA';
+          }
         });
     } catch (err) {
       // eslint-disable-next-line

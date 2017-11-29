@@ -1,6 +1,7 @@
 // imports
 const fetch = require('node-fetch');
 const GeneralService = require('./service-general');
+const stringSimilarity = require('string-similarity');
 
 // class definition
 class FoursquareService extends GeneralService {
@@ -26,9 +27,21 @@ class FoursquareService extends GeneralService {
         .then(data => data.json())
         .then((data) => {
           if (data.meta.code === 200 && data.response.venues.length > 0) {
-            return data.response.venues[0].id;
+            const titles = [];
+            const ids = [];
+            data.response.venues.forEach((item) => {
+              ids.push(item.id);
+              titles.push(item.name);
+            });
+            if (titles.length === 0) return 'NA';
+            const matches = stringSimilarity.findBestMatch(nameQuery, titles);
+            if (matches.bestMatch.rating >= 0.4) {
+              const match = matches.bestMatch.target;
+              return ids[titles.indexOf(match)];
+            }
+            return 'NA';
           }
-          return 'NA';
+          resolve('NA');
         });
     } catch (err) {
       // eslint-disable-next-line

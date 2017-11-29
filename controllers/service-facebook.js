@@ -10,7 +10,9 @@ class FacebookService extends GeneralService {
     const googleLat = googleData.geometry.location.lat;
     const googleLng = googleData.geometry.location.lng;
     const apiSlug = 'https://graph.facebook.com/v2.11/search';
-    const url = `${apiSlug}?type=place&center=${googleLat},${googleLng}&distance=100`;
+    const url = `${apiSlug}?type=place&center=${googleLat},${
+      googleLng
+    }&distance=100&fields=name,overall_star_rating,website,category`;
     try {
       return await fetch(url, {
         method: 'GET',
@@ -28,13 +30,26 @@ class FacebookService extends GeneralService {
           });
 
           if (titles.length === 0) return 'NA';
-          const matches = stringSimilarity.findBestMatch(nameQuery, titles);
+          const nameQueryClean = nameQuery
+            .toLowerCase()
+            .replace(' the restaurant' || ' retaurant', '');
+          const titlesClean = titles.map(title =>
+            title.toLowerCase().replace(' the restaurant' || ' restaurant', ''));
+          const matches = stringSimilarity.findBestMatch(nameQueryClean, titlesClean);
           if (matches.bestMatch.rating >= 0.5) {
             const match = matches.bestMatch.target;
-            return ids[titles.indexOf(match)];
+            return ids[titlesClean.indexOf(match)];
           }
           return 'NA';
         });
+
+      if (titles.length === 0) return 'NA';
+      const matches = stringSimilarity.findBestMatch(nameQuery, titles);
+      if (matches.bestMatch.rating >= 0.5) {
+        const match = matches.bestMatch.target;
+        return ids[titles.indexOf(match)];
+      }
+      return 'NA';
     } catch (err) {
       // eslint-disable-next-line
       console.error(err);

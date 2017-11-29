@@ -26,6 +26,22 @@ const LinksController = async (ctx) => {
     'ChIJEbn-paeOGGARTWVwiDwC9tQ',
     'ChIJIVHOoCF-j4ARnw6y25XWmMA',
     'ChIJ8aZslMeAhYARk2BJNvkVPyc',
+    'ChIJWZjZGj6jpBIRyx-Ib3BptuE',
+    'ChIJn82-Depv5kcRbitLK3lP0Bg',
+    'ChIJqTQzIehv5kcRaF3hD1SzX5A',
+    'ChIJj2U-KCpu5kcRe3Epmv_XaPA',
+    'ChIJ2TXzM8IJxkcRltkDfKaYYmU',
+    'ChIJmXCDu-oJxkcRGHNsqGzPLeQ',
+    'ChIJd75Sd8gJxkcR3jy2XQJJlBo',
+    'ChIJNVGbC9UEdkgRNhmLoyLPIfE',
+    'ChIJD-dBUDMFdkgRoWq7SJN-WwU',
+    'ChIJwzJ0oMsEdkgRevnkOKv6cdw',
+    'ChIJU07oP6wcdkgRxecDS1lBdlc',
+    'ChIJ66z5QEhRCTERD5UhUVtB8_g',
+    'ChIJLdImwuBTCTERmVYVcbuXRqE',
+    'ChIJ78xW0DtRCTERIF3md4mXvo8',
+    'ChIJ7Rdn5mZnzB0RyOHHPQvv-1Q',
+    'ChIJg6qKzSFnzB0RqczGhA4pPVY',
   ];
   let html = '';
   const links = ids.forEach(id => (html += `<a href=/api/v1/places/${id}>${id}</a><br/>`));
