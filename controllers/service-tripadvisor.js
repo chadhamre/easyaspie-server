@@ -66,6 +66,7 @@ class TripAdvisor extends GeneralService {
         price: this.findRating(parsed.price),
         count: Number(parsed.count.split(' ')[0].replace(',', '')),
         rating: 2 * Number(parsed.rating),
+        url,
       };
     } catch (err) {
       // eslint-disable-next-line
@@ -93,6 +94,7 @@ class TripAdvisor extends GeneralService {
       null,
       null,
       null,
+      data.url ? data.url : null,
     );
     return summary;
   }

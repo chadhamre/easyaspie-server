@@ -63,6 +63,7 @@ class HappyCowService extends GeneralService {
         rating: parsed.details[1],
         count: Number(parsed.details[3]),
         name: parsed.name,
+        url,
       };
     } catch (err) {
       // eslint-disable-next-line
@@ -83,6 +84,7 @@ class HappyCowService extends GeneralService {
       null,
       null,
       null,
+      data.url ? data.url : null,
     );
     return summary;
   }
