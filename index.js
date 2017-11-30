@@ -10,10 +10,4 @@ app
   .use(logger())
   .use(router.routes())
   .use(router.allowedMethods())
-
-const server = app.listen(PORT).on("error", err => {
-  // eslint-disable-next-line
-  console.error(err);
-  });
-
-module.exports = server;
+  .listen(process.env.PORT || 4000);
