@@ -77,7 +77,7 @@ class YelpService extends GeneralService {
       categories || null,
       data.photos ? data.photos : null,
       null,
-      data.url ? data.url : null,
+      data.id ? `https://www.yelp.com/biz/${data.id}` : null,
     );
     return summary;
   }
