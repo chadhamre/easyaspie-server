@@ -80,6 +80,7 @@ class FacebookService extends GeneralService {
       categories || null,
       null,
       data.cover ? data.cover.source : null,
+      null,
     );
     return summary;
   }

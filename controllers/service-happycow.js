@@ -82,6 +82,7 @@ class HappyCowService extends GeneralService {
       null,
       null,
       null,
+      null,
     );
     return summary;
   }

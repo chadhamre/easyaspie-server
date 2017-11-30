@@ -34,6 +34,7 @@ class GeneralService {
     categories,
     photos,
     cover,
+    link,
   ) {
     const summary = {
       names: {},
@@ -44,6 +45,7 @@ class GeneralService {
       categories: {},
       photos: null,
       cover: null,
+      links: {},
     };
     if (name) summary.names[service] = name;
     if (rating) summary.ratings[service] = rating;
@@ -53,6 +55,7 @@ class GeneralService {
     if (categories) summary.categories[service] = categories;
     if (photos) summary.photos = photos;
     if (cover) summary.cover = cover;
+    if (link) summary.links[service] = link;
     return summary;
   }
 }

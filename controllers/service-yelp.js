@@ -77,6 +77,7 @@ class YelpService extends GeneralService {
       categories || null,
       data.photos ? data.photos : null,
       null,
+      null,
     );
     return summary;
   }

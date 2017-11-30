@@ -92,6 +92,7 @@ class TripAdvisor extends GeneralService {
       null,
       null,
       null,
+      null,
     );
     return summary;
   }

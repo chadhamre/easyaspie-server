@@ -39,6 +39,9 @@ const placesController = async (ctx) => {
     categories: {},
     photos: [],
     cover: null,
+    links: {
+      google: googleData.url,
+    },
   };
 
   // construct array of services
