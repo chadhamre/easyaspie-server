@@ -20,24 +20,12 @@ class TripAdvisor extends GeneralService {
       })
         .then(data => data.json())
         .then((data) => {
-          const titles = [];
-          const ids = [];
-          data.restaurants.forEach((item) => {
-            ids.push(item.customHover.titleUrl);
-            titles.push(item.customHover.title);
+          const arr = [];
+          data.restaurants.forEach((el) => {
+            arr.push({ id: `${el.customHover.titleUrl}`, name: `${el.customHover.title}` });
+            return arr;
           });
-          if (titles.length === 0) return 'NA';
-          const nameQueryClean = googleData.name
-            .toLowerCase()
-            .replace(/restaurant|the\srestaurant/g, '');
-          const titlesClean = titles.map(title =>
-            title.toLowerCase().replace(/restaurant|the\srestaurant/g, ''));
-          const matches = stringSimilarity.findBestMatch(nameQueryClean, titlesClean);
-          if (matches.bestMatch.rating >= 0.6) {
-            const match = matches.bestMatch.target;
-            return ids[titlesClean.indexOf(match)];
-          }
-          return 'NA';
+          return this.matchingAlgo(arr, googleData.name);
         });
     } catch (err) {
       // eslint-disable-next-line

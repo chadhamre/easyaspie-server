@@ -21,25 +21,9 @@ class FoursquareService extends GeneralService {
       return await fetch(url, { method: 'GET' })
         .then(data => data.json())
         .then((data) => {
+          let id;
           if (data.meta.code === 200 && data.response.venues.length > 0) {
-            const titles = [];
-            const ids = [];
-            data.response.venues.forEach((item) => {
-              ids.push(item.id);
-              titles.push(item.name);
-            });
-            if (titles.length === 0) return 'NA';
-            const nameQueryClean = googleData.name
-              .toLowerCase()
-              .replace(/restaurant|the\srestaurant/g, '');
-            const titlesClean = titles.map(title =>
-              title.toLowerCase().replace(/restaurant|the\srestaurant/g, ''));
-            const matches = stringSimilarity.findBestMatch(nameQueryClean, titlesClean);
-            if (matches.bestMatch.rating >= 0.6) {
-              const match = matches.bestMatch.target;
-              return ids[titlesClean.indexOf(match)];
-            }
-            return 'NA';
+            return this.matchingAlgo(data.response.venues, googleData.name);
           }
         });
     } catch (err) {

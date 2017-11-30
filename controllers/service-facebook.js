@@ -20,27 +20,7 @@ class FacebookService extends GeneralService {
         },
       })
         .then(data => data.json())
-        .then((data) => {
-          const titles = [];
-          const ids = [];
-          data.data.forEach((item) => {
-            ids.push(item.id);
-            titles.push(item.name);
-          });
-
-          if (titles.length === 0) return 'NA';
-          const nameQueryClean = googleData.name
-            .toLowerCase()
-            .replace(/restaurant|the\srestaurant/g, '');
-          const titlesClean = titles.map(title =>
-            title.toLowerCase().replace(/restaurant|the\srestaurant/g, ''));
-          const matches = stringSimilarity.findBestMatch(nameQueryClean, titlesClean);
-          if (matches.bestMatch.rating >= 0.6) {
-            const match = matches.bestMatch.target;
-            return ids[titlesClean.indexOf(match)];
-          }
-          return 'NA';
-        });
+        .then(data => this.matchingAlgo(data.data, googleData.name));
     } catch (err) {
       // eslint-disable-next-line
       console.error(err);
