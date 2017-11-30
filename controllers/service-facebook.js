@@ -1,7 +1,6 @@
 const GeneralService = require('./service-general');
 const fetch = require('node-fetch');
 const stringSimilarity = require('string-similarity');
-const removeDiacritics = require('diacritics').remove;
 
 class FacebookService extends GeneralService {
   // find id
