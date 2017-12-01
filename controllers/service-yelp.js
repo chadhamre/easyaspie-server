@@ -21,26 +21,7 @@ class YelpService extends GeneralService {
         .then((data) => {
           if (data.total === 0) return 'NA';
           if (data.error) return 'NA';
-          if (data.total > 0) {
-            const titles = [];
-            const ids = [];
-            data.businesses.forEach((item) => {
-              ids.push(item.id);
-              titles.push(item.name);
-            });
-            if (titles.length === 0) return 'NA';
-            const nameQueryClean = nameQuery
-              .toLowerCase()
-              .replace(/restaurant|the\srestaurant/g, '');
-            const titlesClean = titles.map(title =>
-              title.toLowerCase().replace(/restaurant|the\srestaurant/g, ''));
-            const matches = stringSimilarity.findBestMatch(nameQueryClean, titlesClean);
-            if (matches.bestMatch.rating >= 0.6) {
-              const match = matches.bestMatch.target;
-              return ids[titlesClean.indexOf(match)];
-            }
-            return 'NA';
-          }
+          if (data.total > 0) return this.matchingAlgo(data.businesses, googleData.name);
         });
     } catch (err) {
       // eslint-disable-next-line

@@ -1,7 +1,21 @@
 const GeneralService = require('./service-general');
 const fetch = require('node-fetch');
 const stringSimilarity = require('string-similarity');
-const removeDiacritics = require('diacritics').remove;
+
+const fieldNames = [
+  'name',
+  'overall_star_rating',
+  'website',
+  'category',
+  'category_list',
+  'about',
+  'price_range',
+  'restaurant_specialties',
+  'likes',
+  'rating_count',
+  'cover',
+  'page_token',
+];
 
 class FacebookService extends GeneralService {
   // find id
@@ -20,27 +34,7 @@ class FacebookService extends GeneralService {
         },
       })
         .then(data => data.json())
-        .then((data) => {
-          const titles = [];
-          const ids = [];
-          data.data.forEach((item) => {
-            ids.push(item.id);
-            titles.push(item.name);
-          });
-
-          if (titles.length === 0) return 'NA';
-          const nameQueryClean = googleData.name
-            .toLowerCase()
-            .replace(/restaurant|the\srestaurant/g, '');
-          const titlesClean = titles.map(title =>
-            title.toLowerCase().replace(/restaurant|the\srestaurant/g, ''));
-          const matches = stringSimilarity.findBestMatch(nameQueryClean, titlesClean);
-          if (matches.bestMatch.rating >= 0.6) {
-            const match = matches.bestMatch.target;
-            return ids[titlesClean.indexOf(match)];
-          }
-          return 'NA';
-        });
+        .then(data => this.matchingAlgo(data.data, googleData.name));
     } catch (err) {
       // eslint-disable-next-line
       console.error(err);
@@ -51,9 +45,7 @@ class FacebookService extends GeneralService {
   // fetch data
   static fetch(id) {
     // console.log('FACEBOOK ID:', id);
-    const url = `https://graph.facebook.com/v2.11/${
-      id
-    }?fields=name,overall_star_rating,website,category,category_list,about,price_range,restaurant_specialties,likes,rating_count,cover,page_token`;
+    const url = `https://graph.facebook.com/v2.11/${id}?fields=${fieldNames.join()}`;
     try {
       return fetch(url, {
         method: 'GET',

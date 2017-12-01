@@ -1,4 +1,5 @@
 const pluralize = require('pluralize');
+const stringSimilarity = require('string-similarity');
 
 class GeneralService {
   // return an average of the inputs
@@ -57,6 +58,26 @@ class GeneralService {
     if (cover) summary.cover = cover;
     if (link) summary.links[service] = link;
     return summary;
+  }
+
+  static matchingAlgo(serviceResponse, name) {
+    const titles = [];
+    const ids = [];
+    serviceResponse.forEach((item) => {
+      ids.push(item.id);
+      titles.push(item.name);
+    });
+    if (titles.length === 0) return 'NA';
+    const nameQueryClean = name.toLowerCase().replace(/restaurant|the\srestaurant/g, '');
+    const titlesClean = titles.map(title =>
+      title.toLowerCase().replace(/restaurant|the\srestaurant/g, ''));
+    const matches = stringSimilarity.findBestMatch(nameQueryClean, titlesClean);
+    if (matches.bestMatch.rating >= 0.6) {
+      const match = matches.bestMatch.target;
+      const id = ids[titlesClean.indexOf(match)];
+      return id;
+    }
+    return 'NA';
   }
 }
 
