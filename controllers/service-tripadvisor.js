@@ -20,11 +20,10 @@ class TripAdvisor extends GeneralService {
       })
         .then(data => data.json())
         .then((data) => {
-          const arr = [];
-          data.restaurants.forEach((el) => {
-            arr.push({ id: `${el.customHover.titleUrl}`, name: `${el.customHover.title}` });
-            return arr;
-          });
+          const arr = data.restaurants.map(el => ({
+            id: `${el.customHover.titleUrl}`,
+            name: `${el.customHover.title}`,
+          }));
           return this.matchingAlgo(arr, googleData.name);
         });
     } catch (err) {

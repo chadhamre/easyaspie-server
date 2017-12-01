@@ -21,7 +21,6 @@ class FoursquareService extends GeneralService {
       return await fetch(url, { method: 'GET' })
         .then(data => data.json())
         .then((data) => {
-          let id;
           if (data.meta.code === 200 && data.response.venues.length > 0) {
             return this.matchingAlgo(data.response.venues, googleData.name);
           }
@@ -84,7 +83,7 @@ class FoursquareService extends GeneralService {
       categories || null,
       [],
       null,
-      data.canonicalUrl ? data.canonicalUrl : null,
+      data.canonicalUrl || null,
     );
     return summary;
   }
