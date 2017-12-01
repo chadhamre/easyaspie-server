@@ -50,10 +50,10 @@ class FacebookService extends GeneralService {
 
   // fetch data
   static fetch(id) {
-    console.log('FACEBOOK ID:', id);
+    // console.log('FACEBOOK ID:', id);
     const url = `https://graph.facebook.com/v2.11/${
       id
-    }?fields=name,overall_star_rating,website,category,category_list,about,price_range,restaurant_specialties,likes,rating_count,cover`;
+    }?fields=name,overall_star_rating,website,category,category_list,about,price_range,restaurant_specialties,likes,rating_count,cover,page_token`;
     try {
       return fetch(url, {
         method: 'GET',
@@ -80,6 +80,7 @@ class FacebookService extends GeneralService {
       categories || null,
       null,
       data.cover ? data.cover.source : null,
+      data.page_token ? `https://facebook.com/${data.page_token}` : null,
     );
     return summary;
   }

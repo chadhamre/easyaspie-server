@@ -100,6 +100,7 @@ class FoursquareService extends GeneralService {
       categories || null,
       [],
       null,
+      data.canonicalUrl ? data.canonicalUrl : null,
     );
     return summary;
   }

@@ -27,6 +27,7 @@ const placesController = async (ctx) => {
       googleData.opening_hours && googleData.opening_hours.weekday_text
         ? googleData.opening_hours.weekday_text
         : null,
+    website: googleData.website,
     names: {
       google: googleData.name,
     },
@@ -39,6 +40,9 @@ const placesController = async (ctx) => {
     categories: {},
     photos: [],
     cover: null,
+    links: {
+      google: googleData.url,
+    },
   };
 
   // construct array of services
