@@ -13,6 +13,7 @@
     "eslint": "^4.11.0",
     "koa": "^2.4.1",
     "koa-logger": "^3.1.0",
+    "koa-response-cache": "^1.0.4",
     "koa-router": "^7.3.0",
     "node-fetch": "^1.7.3",
     "pluralize": "^7.0.0",
