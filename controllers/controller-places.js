@@ -57,6 +57,7 @@ const placesController = async (ctx) => {
     const id = await service.map(googleData);
     if (id !== 'NA') {
       const data = await service.fetch(id);
+      console.log('EXTERNAL FETCH');
       const summary = await service.extract(data);
       if (service.fetchPhotos) {
         summary.photos = await service.fetchPhotos(id);
