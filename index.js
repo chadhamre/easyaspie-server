@@ -7,7 +7,7 @@ const cache = require('koa-response-cache');
 const app = new Koa();
 const PORT = process.env.PORT || 4000;
 
-const REDIS_HOST = process.env.REDIS_URL.split(':')[2];
+const REDIS_HOST = `${process.env.REDIS_URL.split(':')[0]}:${process.env.REDIS_URL.split(':')[2]}`;
 const REDIS_PORT = process.env.REDIS_URL.split(':')[3];
 
 console.log('HOST', REDIS_HOST);
