@@ -10,6 +10,9 @@ const PORT = process.env.PORT || 4000;
 const REDIS_HOST = process.env.REDIS_URL.split(':')[2];
 const REDIS_PORT = process.env.REDIS_URL.split(':')[3];
 
+console.log('HOST', REDIS_HOST);
+console.log('PORT', REDIS_PORT);
+
 const options = {
   expire: 60,
   routes: ['/api/(.*)'],
