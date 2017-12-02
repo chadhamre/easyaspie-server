@@ -14,7 +14,7 @@ console.log('HOST', REDIS_HOST);
 console.log('PORT', REDIS_PORT);
 
 const options = {
-  expire: 60,
+  expire: 1000000,
   routes: ['/api/(.*)'],
   redis: {
     host: REDIS_HOST,
