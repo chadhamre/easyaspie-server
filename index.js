@@ -20,6 +20,7 @@ if (process.env.DEPLOYMENT === 'local') {
   REDIS_HOST = `${process.env.REDIS_URL.split(':')[0]}:${process.env.REDIS_URL.split(':')[2]}`;
 }
 
+// set redis options
 const options = {
   expire: 1000000,
   routes: ['/api/(.*)'],
