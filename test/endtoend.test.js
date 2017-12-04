@@ -3,7 +3,6 @@ const request = require('supertest');
 const placesController = require('../controllers/controller-places');
 const summaryData = require('./mocks/summaryData.mocks');
 
-
 describe('services: mapping', () => {
   test('The Place Controller Should Return a Summary JSON', async () => {
     const ctx = { params: { place_id: 'ChIJAQAw5GWNGGAReOa91wcFHVE' } };
