@@ -50,7 +50,7 @@ class TripAdvisor extends GeneralService {
       }))();
       return {
         name: parsed.name,
-        price: this.findRating(parsed.price),
+        price: parsed.price ? this.findRating(parsed.price) : null,
         count: Number(parsed.count.split(' ')[0].replace(',', '')),
         rating: 2 * Number(parsed.rating),
         url,
