@@ -34,5 +34,8 @@ app
   .use(logger())
   .use(cache(options))
   .use(router.routes())
-  .use(router.allowedMethods())
-  .listen(PORT);
+  .use(router.allowedMethods());
+
+const server = app.listen(PORT);
+
+module.exports = server;
