@@ -41,7 +41,6 @@ class TripAdvisor extends GeneralService {
         method: 'GET',
       });
       data = await data.text();
-      // console.log(data);
       const parsed = await promisify(xray(data, {
         name: '.heading_title',
         rating: 'span.ui_bubble_rating@content',

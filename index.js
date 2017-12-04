@@ -32,7 +32,7 @@ const options = {
 
 // run app
 app
-  .use(logger())
+  // .use(logger())
   .use(cache(options))
   .use(router.routes())
   .use(router.allowedMethods());
