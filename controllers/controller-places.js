@@ -16,6 +16,12 @@ const placesController = async (ctx) => {
     ctx.body = {};
     ctx.status = 400;
   }
+
+  const processGooglePhotos = photos =>
+    photos.filter(item => item.width > 1000).map(item => ({
+      photo_reference: item.photo_reference,
+    }));
+
   // parse google data
   const summary = {
     name: googleData.name,
@@ -39,6 +45,7 @@ const placesController = async (ctx) => {
     bestPhoto: null,
     categories: {},
     photos: [],
+    google_photos: processGooglePhotos(googleData.photos),
     cover: null,
     links: {
       google: googleData.url,
