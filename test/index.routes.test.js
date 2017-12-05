@@ -14,12 +14,12 @@ describe('routes: index', () => {
   });
 });
 
-describe('routes: /api/v1/places/:place_id', () => {
-  test('should respond with 200 if the place id is valid', async () => {
-    const response = await request(server).get('/api/v1/places/ChIJuT9kTBKjpBIRNSy1Grt_ge4');
-    expect(response.status).toEqual(200);
-  });
-});
+// describe('routes: /api/v1/places/:place_id', () => {
+//   test('should respond with 200 if the place id is valid', async () => {
+//     const response = await request(server).get('/api/v1/places/ChIJuT9kTBKjpBIRNSy1Grt_ge4');
+//     expect(response.status).toEqual(200);
+//   });
+// });
 
 describe('routes: /api/v1/places/:place_id', () => {
   test('should respond with a json', async () => {
