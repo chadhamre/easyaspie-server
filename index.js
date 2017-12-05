@@ -22,7 +22,8 @@ if (process.env.DEPLOYMENT === 'local') {
 
 // set redis options
 const options = {
-  expire: 1000000,
+  expire: 10,
+  // expire: 1000000,
   routes: ['/api/(.*)'],
   redis: {
     host: REDIS_HOST,
