@@ -97,8 +97,10 @@ const placesController = async (ctx) => {
   summary.price = GeneralService.getAverage(summary.prices);
 
   // return data to front end
+
   ctx.body = summary;
   ctx.status = 200;
+  return summary;
 };
 
 // export module

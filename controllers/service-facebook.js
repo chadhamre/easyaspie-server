@@ -1,3 +1,4 @@
+require('dotenv').config();
 const GeneralService = require('./service-general');
 const fetch = require('node-fetch');
 const stringSimilarity = require('string-similarity');
@@ -44,7 +45,6 @@ class FacebookService extends GeneralService {
 
   // fetch data
   static fetch(id) {
-    // console.log('FACEBOOK ID:', id);
     const url = `https://graph.facebook.com/v2.11/${id}?fields=${fieldNames.join()}`;
     try {
       return fetch(url, {

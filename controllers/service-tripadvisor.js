@@ -41,7 +41,6 @@ class TripAdvisor extends GeneralService {
         method: 'GET',
       });
       data = await data.text();
-      // console.log(data);
       const parsed = await promisify(xray(data, {
         name: '.heading_title',
         rating: 'span.ui_bubble_rating@content',
@@ -50,7 +49,7 @@ class TripAdvisor extends GeneralService {
       }))();
       return {
         name: parsed.name,
-        price: this.findRating(parsed.price),
+        price: parsed.price ? this.findRating(parsed.price) : null,
         count: Number(parsed.count.split(' ')[0].replace(',', '')),
         rating: 2 * Number(parsed.rating),
         url,
