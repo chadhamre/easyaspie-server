@@ -46,7 +46,7 @@ const placesController = async (ctx) => {
     bestPhoto: null,
     categories: {},
     photos: [],
-    google_photos: processGooglePhotos(googleData.photos),
+    google_photos: googleData.photos ? processGooglePhotos(googleData.photos) : null,
     cover: null,
     links: {
       google: googleData.url,
