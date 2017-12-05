@@ -1,5 +1,7 @@
 # easy-as-pie-server
 
+[![CircleCI](https://circleci.com/gh/chadhamre/easyaspie-server.svg?style=svg&circle-token=0535bedf2f6aeb24aed7da799e7b0fcf7aff0270)](https://circleci.com/gh/chadhamre/easyaspie-server)
+
 #### Some sample place IDs:
 - Le Bistrot Barcelona: ChIJuT9kTBKjpBIRNSy1Grt_ge4
 - Market Cuina: ChIJt7oioxejpBIRyRGWOMn0XaE
