@@ -7,22 +7,34 @@
   "author": "Easyaspie Inc.",
   "license": "MIT",
   "dependencies": {
+    "diacritics": "^1.3.0",
     "dotenv": "^4.0.0",
+    "es6-promisify": "^5.0.0",
     "eslint": "^4.11.0",
     "koa": "^2.4.1",
     "koa-logger": "^3.1.0",
+    "koa-response-cache": "^1.0.4",
     "koa-router": "^7.3.0",
     "node-fetch": "^1.7.3",
-    "pluralize": "^7.0.0"
+    "pluralize": "^7.0.0",
+    "string-similarity": "^1.2.0",
+    "x-ray": "^2.3.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "nodemon": "^1.12.1"
+    "jest": "^21.2.1",
+    "nodemon": "^1.12.1",
+    "supertest": "^3.0.0"
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
