@@ -17,6 +17,7 @@ const placesController = async (ctx) => {
     ctx.status = 400;
   }
 
+  // build google photos array
   const processGooglePhotos = photos =>
     photos.filter(item => item.width > 1000).map(item => ({
       photo_reference: item.photo_reference,
