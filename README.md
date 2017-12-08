@@ -4,7 +4,7 @@
 
 #### Architecture
 
-![Diagram](https://github.com/chadhamre/easyaspie-server/blob/develop/architecture.svg "Architecture")
+![Diagram](https://github.com/chadhamre/easyaspie-server/blob/develop/architecture.png "Architecture")
 
 #### Some sample place IDs:
 
