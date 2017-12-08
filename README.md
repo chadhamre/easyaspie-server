@@ -4,7 +4,7 @@
 
 #### Architecture
 
-![Diagram](./architecture.png "Architecture")
+![Diagram](https://github.com/chadhamre/easyaspie-server/blob/develop/architecture.svg "Architecture")
 
 #### Some sample place IDs:
 
